@@ -1,0 +1,11 @@
+localhost:3000/api/homes/1/cost
+
+
+[
+    {
+        "id": 1,
+        "home_price": 1042400,
+        "property_tax": 7193,
+        "hoa": 435
+    }
+]
