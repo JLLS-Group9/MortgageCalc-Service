@@ -1,17 +1,31 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
+  "name": "mortgagecalc-service",
+  "description": "> Project description",
   "author": "",
-  "license": "",
+  "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "nodemon server/index.js",
+    "seeder": "node seeder.js"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
-  }
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JLLS-Group9/MortgageCalc-Service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JLLS-Group9/MortgageCalc-Service/issues"
+  },
+  "homepage": "https://github.com/JLLS-Group9/MortgageCalc-Service#readme"
 }
