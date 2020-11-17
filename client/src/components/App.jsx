@@ -27,8 +27,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className={styles.title}>App Component for Mortgage Calculator
-      <Form/>
+      <div>
+        <div className={styles.title}>Affordability</div>
+        <div>Calculate your monthly mortgage payments</div>
+        <div>Your est.payment: ${'placeholder'}/month</div>
+        <Form financials={this.state.financials}/>
       </div>
     );
   }
