@@ -6,11 +6,13 @@ class Form extends React.Component {
     super(props);
 
     this.state = {
-      home_price: null,
+      home_price: "",
+      price_rance: "",
       property_tax: null,
       hoa: null,
-      interest: null,
-      down_payment_percent: null
+      interest: 2.78,
+      down_payment: null,
+      down_payment_percent: 20
     };
     this.onSlider=this.onSlider.bind(this)
   }
@@ -19,38 +21,53 @@ class Form extends React.Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-
   render() {
     return (
       <div className={styles.formTable}>
         <div className={styles.formBox}>
-        <form>
+        <form onChange={this.onSlider}>
           <label className={styles.formHeader}>Home Price</label>
           <input className={styles.formPrice}
             type="text"
-            name="price"
-            value={this.props.financials.home_price}
+            name="home_price"
+            value={this.state.home_price ? [this.state.home_price].toLocaleString('en-US', {style: "currency",
+            currency: "USD",
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,}) : [this.props.financials.home_price].toLocaleString('en-US', {style: "currency",
+            currency: "USD",
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,})}
           />
           <input className={styles.slider}
             type="range"
+            name="price_range"
             min = "0"
+            max = "100"
+            value={this.state.price_range ? 50 : 50}
 
           />
         </form>
-        <form>
+        <form onChange={this.onSlider}>
           <label className={styles.formHeader}>Down Payment</label>
-          <input className={styles.formLeft}
+          <input
+            className={styles.formLeft }
             type="text"
-            name="down payment"
-            value="calculated value"
+            name="down_payment"
+            value={this.state.down_payment}
           />
-          <input className={styles.formRight}
+          <input
+            className={styles.formRight}
             type="text"
             name="down_payment_percent"
             value={this.state.down_payment_percent}
           />
           <input className={styles.slider}
             type="range"
+            name="down_payment_percent"
+            min="0"
+            max="30"
+            value={[this.state.down_payment_percent].toLocaleString('en-US', { style: 'percent' })}
+            style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.state.down_payment_percent/.3}%, rgb(205, 209, 212) ${this.state.down_payment_percent/.3}%, rgb(205, 209, 212) 100%)`}}
           />
         </form>
         <form className={styles.formHeader} onChange={this.onSlider}>
