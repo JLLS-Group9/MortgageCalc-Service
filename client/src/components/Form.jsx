@@ -9,33 +9,70 @@ class Form extends React.Component {
       home_price: null,
       property_tax: null,
       hoa: null,
+      interest: null,
+      down_payment_percent: null
     };
+    this.onSlider=this.onSlider.bind(this)
+  }
+
+  onSlider(e) {
+    this.setState({[e.target.name]: e.target.value})
   }
 
 
   render() {
     return (
-      <div>
+      <div className={styles.formTable}>
+        <div className={styles.formBox}>
         <form>
-          <label>Home Price</label>
-          <input type="text" name="price" placeholder={this.props.financials.home_price}/>
-          <input type="range"/>
-        </form>
-        <form>
-          <label>Down Payment</label>
-          <input type="text" name="down payment" placeholder="calculated value"/>
-          <input type="text" name="down payment percent" placeholder="calculated value"/>
-          <input type="range"/>
-        </form>
-        <form>
-          <label>Interest Rate</label>
-          <input type="text" name="interest" placeholder="2.79%"/>
-          <input type="range"/>
-        </form>
-        <form>
-          <label for="loan type">Loan Type</label>
+          <label className={styles.formHeader}>Home Price</label>
+          <input className={styles.formPrice}
+            type="text"
+            name="price"
+            value={this.props.financials.home_price}
+          />
+          <input className={styles.slider}
+            type="range"
+            min = "0"
 
-          <select>
+          />
+        </form>
+        <form>
+          <label className={styles.formHeader}>Down Payment</label>
+          <input className={styles.formLeft}
+            type="text"
+            name="down payment"
+            value="calculated value"
+          />
+          <input className={styles.formRight}
+            type="text"
+            name="down_payment_percent"
+            value={this.state.down_payment_percent}
+          />
+          <input className={styles.slider}
+            type="range"
+          />
+        </form>
+        <form className={styles.formHeader} onChange={this.onSlider}>
+          <label>Interest Rate</label>
+          <input className={styles.formPrice}
+            type="text"
+            name="interest"
+            value = {this.state.interest}
+          />
+          <input className={styles.slider}
+            type="range"
+            name="interest"
+            min="0"
+            max="6.5"
+            step="0.1"
+            value={this.state.interest}
+            style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.state.interest/.065}%, rgb(205, 209, 212) ${this.state.interest/.065}%, rgb(205, 209, 212) 100%)`}}
+          />
+        </form>
+        <form>
+          <label className={styles.formHeader} for="loan type">Loan Type</label>
+          <select className={styles.loan}>
             <option value="30-year fixed">30-year fixed</option>
             <option value="20-year fixed">20-year fixed</option>
             <option value="15-year fixed">15-year fixed</option>
@@ -46,9 +83,7 @@ class Form extends React.Component {
             <option value="VA 15-year fixed">VA 15-year fixed</option>
           </select>
         </form>
-
-        <div>This home's hoa: {this.props.financials.hoa}</div>
-        <div>This home's property tax: {this.props.financials.property_tax}</div>
+        </div>
       </div>
     )
   }

@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from '../style.css';
 
-const Table = (props) => (
+const Graph = (props) => (
   <div></div>
 );
 
-export default Table;
+export default Graph;
