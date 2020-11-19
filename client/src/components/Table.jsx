@@ -72,7 +72,7 @@ const Table = (props) => (
 
     </div>
     <div>
-      <button>Get Pre-Qualified</button>
+      <button className={styles.tableButton}>Get Pre-Qualified</button>
       <div>or</div>
       <div>See today's Mortgage rates</div>
     </div>
