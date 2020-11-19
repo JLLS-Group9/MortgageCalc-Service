@@ -50,7 +50,7 @@ class App extends React.Component {
   }
 
   setDefaults(loan_type) {
-    this.setState({down_payment_percent: 20, interest: Type[loan_type], home_ins: 75})
+    this.setState({down_payment_percent: 20, interest: Type[loan_type], home_ins: 75, other: 0})
   }
 
   setDownPayment() {
@@ -128,8 +128,8 @@ class App extends React.Component {
           onDownPayment={this.onDownPayment}
           calcMonthly={this.calcMonthly}
            />
-        <Graph data={this.state}/>
-        {/* <Table data={this.state}/> */}
+        {/* <Graph data={this.state}/> */}
+        <Table data={this.state}/>
       </div>
     );
   }
