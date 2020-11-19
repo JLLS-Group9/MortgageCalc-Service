@@ -128,7 +128,7 @@ class App extends React.Component {
           onDownPayment={this.onDownPayment}
           calcMonthly={this.calcMonthly}
            />
-        {/* <Graph data={this.state}/> */}
+        <Graph data={this.state}/>
         <Table data={this.state}/>
       </div>
     );

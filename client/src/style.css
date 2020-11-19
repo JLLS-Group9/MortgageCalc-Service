@@ -221,7 +221,20 @@ html, body {
 
 .tableButton:hover {
   font: rgb(0, 120, 130);
+  color: rgb(0, 120, 130);
   background-color: rgb(255, 255, 255);
   border-color: rgb(0, 120, 130);
+  text-decoration: none;
+}
+
+.todaysRates {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+
+}
+
+.rates {
+  color: rgb(0, 120, 130);
   text-decoration: none;
 }
