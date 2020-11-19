@@ -19,7 +19,8 @@ class App extends React.Component {
       principalAndInterest: "",
       other: "",
       monthly: "",
-      home_ins: ""
+      home_ins: "",
+
     };
     this.retrieveCost = this.retrieveCost.bind(this);
     this.setDefaults = this.setDefaults.bind(this);
@@ -129,7 +130,7 @@ class App extends React.Component {
           calcMonthly={this.calcMonthly}
            />
         <Graph data={this.state}/>
-        <Table data={this.state}/>
+        {/* <Table data={this.state}/> */}
       </div>
     );
   }
