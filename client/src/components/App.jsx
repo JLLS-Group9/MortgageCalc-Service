@@ -13,8 +13,8 @@ class App extends React.Component {
       home_price: "",
       property_tax: "",
       hoa: "",
-      interest: 2.78,
-      down_payment_percent: 20,
+      interest: "",
+      down_payment_percent: "",
       down_payment: "",
       principalAndInterest: "",
       other: "",
@@ -26,6 +26,7 @@ class App extends React.Component {
     this.setDownPayment = this.setDownPayment.bind(this);
     this.setPrincipalandInt = this.setPrincipalandInt.bind(this);
     this.pmt = this.pmt.bind(this);
+    this.onHomePrice = this.onHomePrice.bind(this);
     this.onSlider = this.onSlider.bind(this);
     this.onLoanType = this.onLoanType.bind(this);
     this.onDownPayment = this.onDownPayment.bind(this);
@@ -61,10 +62,16 @@ class App extends React.Component {
   }
 
   //set homeprice
-
+  onHomePrice(value) {
+    this.setState({home_price: value})
+  }
   //move sliders
   onSlider(e) {
     this.setState({[e.target.name]: e.target.value})
+    this.setDownPayment()
+    this.setPrincipalandInt()
+    //need to recalc principal and interest
+    this.calcMonthly()
   }
   //set interest LoanType
   onLoanType(e) {
@@ -112,6 +119,7 @@ class App extends React.Component {
           data={this.state}
           setDownPayment={this.setDownPayment}
           setPrincipalandInt={this.setPrincipalandInt}
+          onHomePrice={this.onHomePrice}
           onSlider={this.onSlider}
           onLoanType={this.onLoanType}
           onDownPayment={this.onDownPayment}
