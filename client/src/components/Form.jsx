@@ -84,9 +84,11 @@ class Form extends React.Component {
           />
         </form>
 
-        {/* <form>
+        <form>
           <label className={styles.formHeader} for="loan type">Loan Type</label>
-          <select className={styles.loan}>
+          <select className={styles.loan}
+            onChange={this.handleInput}
+            name="loan_type">
             <option value="30-year fixed">30-year fixed</option>
             <option value="20-year fixed">20-year fixed</option>
             <option value="15-year fixed">15-year fixed</option>
@@ -96,7 +98,7 @@ class Form extends React.Component {
             <option value="VA 30-year fixed">VA 30-year fixed</option>
             <option value="VA 15-year fixed">VA 15-year fixed</option>
           </select>
-        </form> */}
+        </form>
         </div>
       </div>
     )
