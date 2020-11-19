@@ -66,7 +66,7 @@ class Form extends React.Component {
           />
         </form>
 
-        {/* <form className={styles.formHeader} onChange={this.handleInput}>
+        <form className={styles.formHeader} onChange={this.handleInput}>
           <label>Interest Rate</label>
           <input className={styles.formPrice}
             type="text"
@@ -77,12 +77,12 @@ class Form extends React.Component {
             type="range"
             name="interest"
             min="0"
-            max="6.5"
-            step="0.1"
+            max=".065"
+            step="0.001"
             value={this.props.data.interest}
-            style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.interest/.065}%, rgb(205, 209, 212) ${this.props.data.interest/.065}%, rgb(205, 209, 212) 100%)`}}
+            style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.interest/.00065}%, rgb(205, 209, 212) ${this.props.data.interest/.00065}%, rgb(205, 209, 212) 100%)`}}
           />
-        </form> */}
+        </form>
 
         {/* <form>
           <label className={styles.formHeader} for="loan type">Loan Type</label>
