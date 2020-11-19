@@ -7,14 +7,37 @@ class Form extends React.Component {
 
     this.state = {
       home_price: "",
-      price_rance: "",
-      property_tax: null,
-      hoa: null,
+      hoa: "",
+      property_tax: "",
       interest: 2.78,
+      down_payment_percent: 20,
       down_payment: null,
-      down_payment_percent: 20
+      principalAndInterest: 'calc',
+      other: 0
+
     };
-    this.onSlider=this.onSlider.bind(this)
+    this.onSlider=this.onSlider.bind(this);
+    this.setDefault=this.setDefault.bind(this);
+    this.setDownPayment=this.setDownPayment.bind(this);
+  }
+
+  componentDidMount() {
+    this.setDefault
+    this.setDownPayment
+
+  }
+
+  setDefault() {
+    this.setState({ home_price: this.props.financials.home_price, hoa: this.props.financials.hoa, property_tax: this.props.property_tax})
+  }
+
+  setDownPayment() {
+    let value = this.state.home_price * (1 + (this.state.down_payment_percent/100));
+    this.setState({down_payment: value})
+  }
+
+  calcPrincipalAndInterest() {
+    console.log('hello world')
   }
 
   onSlider(e) {
@@ -30,21 +53,14 @@ class Form extends React.Component {
           <input className={styles.formPrice}
             type="text"
             name="home_price"
-            value={this.state.home_price ? [this.state.home_price].toLocaleString('en-US', {style: "currency",
-            currency: "USD",
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0,}) : [this.props.financials.home_price].toLocaleString('en-US', {style: "currency",
-            currency: "USD",
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0,})}
-          />
+            value={this.state.home_price ? this.state.home_price : this.props.financials.home_price}/>
           <input className={styles.slider}
             type="range"
-            name="price_range"
+            name="home_price"
             min = "0"
-            max = "100"
-            value={this.state.price_range ? 50 : 50}
-
+            max = "1600000"
+            value={this.state.home_price}
+            style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.state.home_price/16000}%, rgb(205, 209, 212) ${this.state.home_price/16000}%, rgb(205, 209, 212) 100%)`}}
           />
         </form>
         <form onChange={this.onSlider}>
@@ -53,7 +69,7 @@ class Form extends React.Component {
             className={styles.formLeft }
             type="text"
             name="down_payment"
-            value={this.state.down_payment}
+            value={this.state.down_payment ? this.state.down_payment : this.state.home_price*(this.state.down_payment_percent/100)}
           />
           <input
             className={styles.formRight}
@@ -66,7 +82,7 @@ class Form extends React.Component {
             name="down_payment_percent"
             min="0"
             max="30"
-            value={[this.state.down_payment_percent].toLocaleString('en-US', { style: 'percent' })}
+            value={this.state.down_payment_percent}
             style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.state.down_payment_percent/.3}%, rgb(205, 209, 212) ${this.state.down_payment_percent/.3}%, rgb(205, 209, 212) 100%)`}}
           />
         </form>
@@ -107,4 +123,20 @@ class Form extends React.Component {
 
 }
 
+var loanType = {
+  "30-year fixed": 0.0276,
+  "20-year fixed": 0.0291,
+  "15-year fixed": 0.0247,
+  "10-year fixed": 0.0281,
+  "FHA 30-year fixed": 0.0235,
+  "FHA 15-year fixed": 0.0225,
+  "VA 30-year fixed": 0.027,
+  "Va 15-year fixed": 0.0217
+};
+
 export default Form;
+
+// .toLocaleString('en-US', {style: "currency",
+//             currency: "USD",
+//             minimumFractionDigits: 0,
+//             maximumFractionDigits: 0,})

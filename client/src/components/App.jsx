@@ -40,8 +40,8 @@ class App extends React.Component {
         <div className={styles.textOne}>Calculate your monthly mortgage payments</div>
         <div>Your est.payment: ${'placeholder'}/month</div>
         <Form financials={this.state.financials}/>
-        <Graph />
-        <Table />
+        {/* <Graph /> */}
+        {/* <Table /> */}
       </div>
     );
   }
