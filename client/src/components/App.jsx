@@ -17,13 +17,19 @@ class App extends React.Component {
       down_payment_percent: 20,
       down_payment: "",
       principalAndInterest: "",
-      other: ""
+      other: "",
+      monthly: "",
+      home_ins: ""
     };
     this.retrieveCost = this.retrieveCost.bind(this);
     this.setDefaults = this.setDefaults.bind(this);
     this.setDownPayment = this.setDownPayment.bind(this);
     this.setPrincipalandInt = this.setPrincipalandInt.bind(this);
-    this.pmt = this.pmt.bind(this)
+    this.pmt = this.pmt.bind(this);
+    this.onSlider = this.onSlider.bind(this);
+    this.onLoanType = this.onLoanType.bind(this);
+    this.onDownPayment = this.onDownPayment.bind(this);
+    this.calcMonthly = this.calcMonthly.bind(this);
   }
 
   componentDidMount() {
@@ -39,10 +45,11 @@ class App extends React.Component {
       .then(this.setDefaults("30-year fixed"))
       .then(this.setDownPayment)
       .then(this.setPrincipalandInt)
+      .then(this.calcMonthly)
   }
 
   setDefaults(loan_type) {
-    this.setState({down_payment_percent: 20, interest: Type[loan_type]})
+    this.setState({down_payment_percent: 20, interest: Type[loan_type], home_ins: 75})
   }
 
   setDownPayment() {
@@ -53,6 +60,29 @@ class App extends React.Component {
     this.setState({principalAndInterest: -this.pmt(this.state.interest/12, 360, this.state.home_price-this.state.down_payment)})
   }
 
+  //set homeprice
+
+  //move sliders
+  onSlider(e) {
+    this.setState({[e.target.name]: e.target.value})
+  }
+  //set interest LoanType
+  onLoanType(e) {
+    this.setStae({interest: Type[e.target.value]})
+  }
+  //set down payment percentage from down payment
+  onDownPayment() {
+    this.setState({down_payment_percent: this.state.down_payment/this.state.home_price})
+  }
+
+  calcMonthly() {
+    this.setState({monthly:
+      this.state.principalAndInterest +
+      this.state.hoa +
+      this.state.property_tax/12 +
+      this.state.home_ins +
+      this.state.other})
+  }
 
   pmt(ir, np, pv) {
     /*
@@ -78,9 +108,17 @@ class App extends React.Component {
         <br></br>
         <div className={styles.textOne}>Calculate your monthly mortgage payments</div>
         <div>Your est.payment: ${'placeholder'}/month</div>
-        <Form financials={this.state}/>
-        {/* <Graph /> */}
-        {/* <Table /> */}
+        <Form
+          data={this.state}
+          setDownPayment={this.setDownPayment}
+          setPrincipalandInt={this.setPrincipalandInt}
+          onSlider={this.onSlider}
+          onLoanType={this.onLoanType}
+          onDownPayment={this.onDownPayment}
+          calcMonthly={this.calcMonthly}
+           />
+        {/* <Graph data={this.state}/> */}
+        {/* <Table data={this.state}/> */}
       </div>
     );
   }

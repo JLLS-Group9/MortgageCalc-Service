@@ -7,55 +7,24 @@ class Form extends React.Component {
 
     this.state = {
       home_price: "",
-      hoa: "",
-      property_tax: "",
-      interest: 2.78,
-      down_payment_percent: 20,
+      interest: "",
       down_payment: "",
-      principalAndInterest: 'calc',
-      other: 0
+      down_payment_percent: "",
+      loanType: ""
 
     };
-    this.onSlider=this.onSlider.bind(this);
-    this.setDefault=this.setDefault.bind(this);
-    this.setDownPayment=this.setDownPayment.bind(this);
-  }
-
-  componentDidMount() {
-    this.setDefault()
-    //(console.log('hoa',this.state.hoa))
-    //.then(this.setDownPayment)
-
-  }
-
-  setDefault() {
-    this.setState({ home_price: this.props.financials.home_price, hoa: this.props.financials.hoa, property_tax: this.props.financials.property_tax})
-  }
-
-  setDownPayment() {
-    let value = this.state.home_price * (1 + (this.state.down_payment_percent/100));
-    console.log(this.state.home_price)
-    this.setState({down_payment: value})
-  }
-
-  calcPrincipalAndInterest() {
-    console.log('hello world')
-  }
-
-  onSlider(e) {
-    this.setState({[e.target.name]: e.target.value})
   }
 
   render() {
     return (
       <div className={styles.formTable}>
         <div className={styles.formBox}>
-        <form onChange={this.onSlider}>
+        <form onChange={this.props.onSlider}>
           <label className={styles.formHeader}>Home Price</label>
           <input className={styles.formPrice}
             type="text"
             name="home_price"
-            value={this.state.home_price ? this.state.home_price : this.props.financials.home_price}/>
+            value={this.state.home_price ? this.state.home_price : this.props.data.home_price}/>
           <input className={styles.slider}
             type="range"
             name="home_price"
