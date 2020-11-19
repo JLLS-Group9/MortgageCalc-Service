@@ -125,17 +125,6 @@ class Form extends React.Component {
 
 }
 
-var loanType = {
-  "30-year fixed": 0.0276,
-  "20-year fixed": 0.0291,
-  "15-year fixed": 0.0247,
-  "10-year fixed": 0.0281,
-  "FHA 30-year fixed": 0.0235,
-  "FHA 15-year fixed": 0.0225,
-  "VA 30-year fixed": 0.027,
-  "Va 15-year fixed": 0.0217
-};
-
 export default Form;
 
 // .toLocaleString('en-US', {style: "currency",
