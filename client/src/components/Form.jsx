@@ -11,7 +11,7 @@ class Form extends React.Component {
       property_tax: "",
       interest: 2.78,
       down_payment_percent: 20,
-      down_payment: null,
+      down_payment: "",
       principalAndInterest: 'calc',
       other: 0
 
@@ -22,17 +22,19 @@ class Form extends React.Component {
   }
 
   componentDidMount() {
-    this.setDefault
-    this.setDownPayment
+    this.setDefault()
+    //(console.log('hoa',this.state.hoa))
+    //.then(this.setDownPayment)
 
   }
 
   setDefault() {
-    this.setState({ home_price: this.props.financials.home_price, hoa: this.props.financials.hoa, property_tax: this.props.property_tax})
+    this.setState({ home_price: this.props.financials.home_price, hoa: this.props.financials.hoa, property_tax: this.props.financials.property_tax})
   }
 
   setDownPayment() {
     let value = this.state.home_price * (1 + (this.state.down_payment_percent/100));
+    console.log(this.state.home_price)
     this.setState({down_payment: value})
   }
 
@@ -69,7 +71,7 @@ class Form extends React.Component {
             className={styles.formLeft }
             type="text"
             name="down_payment"
-            value={this.state.down_payment ? this.state.down_payment : this.state.home_price*(this.state.down_payment_percent/100)}
+            value={this.state.home_price*(this.state.down_payment_percent/100)}
           />
           <input
             className={styles.formRight}

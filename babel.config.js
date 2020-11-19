@@ -9,8 +9,5 @@ module.exports = {
       },
     ],
     '@babel/preset-react'
-  ],
-  plugins: [
-    'css-modules-transform'
   ]
 };
