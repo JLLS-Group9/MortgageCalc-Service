@@ -145,5 +145,5 @@ var Type = {
   "FHA 30-year fixed": 0.0235,
   "FHA 15-year fixed": 0.0225,
   "VA 30-year fixed": 0.027,
-  "Va 15-year fixed": 0.0217
+  "VA 15-year fixed": 0.0217
 };
