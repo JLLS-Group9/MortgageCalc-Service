@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import styles from '../style.css';
+import Form from './Form.jsx'
 import axios from 'axios';
 
 class App extends React.Component {
@@ -27,7 +27,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className={styles.title}>App Component for Mortgage Calculator</div>
+      <div className={styles.title}>App Component for Mortgage Calculator
+      <Form/>
+      </div>
     );
   }
 }
