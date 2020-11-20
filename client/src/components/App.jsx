@@ -111,36 +111,43 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className={styles.title}>Affordability</div>
-        <div className={styles.textOne}>Calculate your monthly mortgage payments</div>
-        <div>Your est.payment: {Number(this.state.monthly).toLocaleString('en-US', {style: "currency",
+      <div className={styles.app}>
+      <div className={styles.innerApp}>
+        <div className={styles.title}>
+          <div className={styles.titleText}>
+            Affordability
+          </div>
+        </div>
+        <div className={styles.subTitle}>
+          <div className={styles.textOne}>Calculate your monthly mortgage payments</div>
+          <div>Your est.payment: {Number(this.state.monthly).toLocaleString('en-US', {style: "currency",
              currency: "USD",
              minimumFractionDigits: 0,
              maximumFractionDigits: 0,})}/month</div>
+        </div>
         <div className={styles.formContainer}>
-        <Form
-          data={this.state}
-          setDownPayment={this.setDownPayment}
-          setPrincipalandInt={this.setPrincipalandInt}
-          onHomePrice={this.onHomePrice}
-          onSlider={this.onSlider}
-          onLoanType={this.onLoanType}
-          onDownPayment={this.onDownPayment}
-          calcMonthly={this.calcMonthly}
-           />
+          <Form
+            data={this.state}
+            setDownPayment={this.setDownPayment}
+            setPrincipalandInt={this.setPrincipalandInt}
+            onHomePrice={this.onHomePrice}
+            onSlider={this.onSlider}
+            onLoanType={this.onLoanType}
+            onDownPayment={this.onDownPayment}
+            calcMonthly={this.calcMonthly}
+          />
         </div>
-        <div>
-
         <div className={styles.graphTable}>
-          <div>
-          <Graph data={this.state}/>
-          </div>
-          <div className={styles.tableBox}>
-          <Table data={this.state}/>
+          <div >
+            <div>
+            <Graph data={this.state}/>
+            </div>
+            <div className={styles.tableBox}>
+            <Table data={this.state}/>
           </div>
         </div>
         </div>
+      </div>
       </div>
     );
   }

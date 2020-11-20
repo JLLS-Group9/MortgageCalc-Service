@@ -1,3 +1,4 @@
+/* top level */
 html, body {
   margin: 10px;
   padding: 5px;
@@ -10,7 +11,28 @@ html, body {
   position: relative;
 }
 
+.app {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.innerApp {
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  margin: 32px 0px;
+  flex-direction: column;
+}
+
 .title {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0px 0px 8px;
+}
+
+.titleText {
   font-weight: bold;
   font-size: 20px;
   line-height: 1.2;
@@ -22,13 +44,20 @@ html, body {
   font-weight: bold;
 }
 
+.subTitle {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0px 0px 16px;
+}
+
 .textOne {
   font-weight: bold;
   font-size: 16px;
   line-height: 1.5;
 }
 
-
+/* form table */
 .formTable {
   width: 100%;
   border-radius: 8px;
@@ -93,6 +122,13 @@ html, body {
 .loan:focus, .loan:focus-within {
   border-color: rgb(0, 173, 187);
   box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
+}
+
+.formContainer {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  color: rgb(59,65,68);
 }
 
 .formBox {
@@ -165,6 +201,7 @@ html, body {
   box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
 }
 
+/* data table */
 .blueDot {
   background-color: rgb(5, 34, 134);
   width: 16px;
@@ -240,33 +277,8 @@ html, body {
   text-decoration: none;
 }
 
-.graph {
-  width: 260px;
-  height: 260px;
-}
-
-.graphBox {
-  display: block;
-  margin: 32px 32px 32px 16px;
-}
-
-/* .graphCenter {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0px;
-  width: 100%;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-} */
-
 .tableData {
   display: flex;
-}
-
-.formContainer {
-  display: block;
 }
 
 .tableBox {
@@ -289,9 +301,33 @@ html, body {
   display: block;
 }
 
+/* graph */
+.graph {
+  width: 260px;
+  height: 260px;
+}
+
+.graphBox {
+  display: block;
+  margin: 32px 32px 32px 16px;
+}
+
+/* .graphCenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0px;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+} */
+
 .graphTable {
   display: flex;
   flex-wrap: wrap;
   -webkit-box-pack: center;
   justify-content: center;
+  box-sizing: border-box;
+  outline: none;
 }
