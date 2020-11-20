@@ -10,7 +10,7 @@ module.exports = {
     ],
     '@babel/preset-react'
   ],
-  plugins: [
-    'css-modules-transform'
-  ]
+  // plugins: [
+  //   'css-modules-transform'
+  // ]
 };

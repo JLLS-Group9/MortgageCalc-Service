@@ -1,3 +1,297 @@
+html, body {
+  margin: 10px;
+  padding: 5px;
+  font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+  color: rgb(59, 65, 68);
+  background-color: rgb(255, 255, 255);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.1px;
+  position: relative;
+}
+
 .title {
-  color: blueviolet;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.textOne {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+.formTable {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: rgb(245, 246, 247);
+  padding: 16px;
+}
+
+.slider {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, rgb(0, 120, 130), rgb(0, 120, 130), rgb(205, 209, 212), rgb(205, 209, 212));
+  appearance: none;
+  outline: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.slider:focus {
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background: rgb(0, 120, 130);
+  margin-top: -5px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.968);
+  border-width: 4px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px #c5c4c4;
+}
+
+.formHeader {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.loan {
+  width: 100%;
+  display: inline-block;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  font-weight: bold;
+  border: 1px solid rgb(205, 209, 212);
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  padding: 8px;
+  outline: none;
+  transition: box-shadow 0.15s ease 0s, border-color 0.15s ease 0s;
+}
+
+.loan:focus, .loan:focus-within {
+  border-color: rgb(0, 173, 187);
+  box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
+}
+
+.formBox {
+  display: flex;
+  justify-content:space-around; justify-content:space-between;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-top: -16px;
+  flex-wrap: wrap;
+}
+
+.formPrice {
+  width: 112px;
+  display: inline-block;
+  -webkit-box-align: end;
+  align-items: flex-end;
+  position: relative;
+  border: 1px solid rgb(205, 209, 212);
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  padding: 8px;
+  outline: none;
+  transition: box-shadow 0.15s ease 0s, border-color 0.15s ease 0s;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.formPrice:focus, .formPrice:focus-within {
+  border-color: rgb(0, 173, 187);
+  box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
+}
+
+.formLeft {
+  width: 100px;
+  border: 1px solid rgb(205, 209, 212);
+  border-width: 1px 0px 1px 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-image: initial;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  display: inline-block;
+  outline: none;
+  transition: box-shadow 0.15s ease 0s, border-color 0.15s ease 0s;
+  border-radius: 8px 0px 0px 8px;
+  border-right-style: initial;
+}
+
+.formLeft:focus, .formLeft:focus-within {
+  border-color: rgb(0, 173, 187);
+  box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
+}
+
+.formRight {
+  border: 1px solid rgb(205, 209, 212);
+  padding: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 56px;
+  display: inline-block;
+  outline: none;
+  transition: box-shadow 0.15s ease 0s, border-color 0.15s ease 0s;
+  border-radius: 0px 8px 8px 0px;
+}
+
+.formRight:focus, .formRight:focus-within {
+  border-color: rgb(0, 173, 187);
+  box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
+}
+
+.blueDot {
+  background-color: rgb(5, 34, 134);
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+}
+
+.tealDot {
+  background-color: rgb(0, 173, 187);
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+}
+
+.greenDot {
+  background-color: rgb(194, 213, 0);
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+}
+
+.pinkDot {
+  background-color: rgb(250, 140, 104);
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+}
+
+.purpleDot {
+  background-color: rgb(206, 182, 255);
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+}
+
+.tableButton {
+  margin: 0px;
+  border-radius: 8px;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  transition: top 0.1s ease 0s, box-shadow 0.1s ease 0s, border-color 0.1s ease 0s, background-color 0.1s ease 0s, color 0.1s ease 0s;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 8px 16px;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 120, 130);
+  border-color: transparent;
+}
+
+.tableButton:hover {
+  font: rgb(0, 120, 130);
+  color: rgb(0, 120, 130);
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(0, 120, 130);
+  text-decoration: none;
+}
+
+.todaysRates {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+
+}
+
+.rates {
+  color: rgb(0, 120, 130);
+  text-decoration: none;
+}
+
+.graph {
+  width: 260px;
+  height: 260px;
+}
+
+.graphBox {
+  display: block;
+  margin: 32px 32px 32px 16px;
+}
+
+/* .graphCenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0px;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+} */
+
+.tableData {
+  display: flex;
+}
+
+.formContainer {
+  display: block;
+}
+
+.tableBox {
+  box-sizing: border-box;
+  flex: 1 1 0%;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 16px 0px 16px 16px;
+  min-width: 50%;
+}
+
+.tableGrid {
+  width: 100%;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  display: block;
+}
+
+.graphTable {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  justify-content: center;
 }

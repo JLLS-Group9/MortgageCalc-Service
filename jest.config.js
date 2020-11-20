@@ -180,6 +180,9 @@ module.exports = {
   //  "\\.pnp\\.[^\\/]+$"
   ],
 
+  moduleNameMapper: {
+    "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+  },
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
 
