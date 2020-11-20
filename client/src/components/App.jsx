@@ -115,12 +115,12 @@ class App extends React.Component {
       <div className={styles.innerApp}>
         <div className={styles.title}>
           <div className={styles.titleText}>
-            Affordability
+            <div className={styles.innerTitleText}>Affordability</div>
           </div>
         </div>
         <div className={styles.subTitle}>
           <div className={styles.textOne}>Calculate your monthly mortgage payments</div>
-          <div>Your est.payment: {Number(this.state.monthly).toLocaleString('en-US', {style: "currency",
+          <div className={styles.textTwo}>Your est.payment: {Number(this.state.monthly).toLocaleString('en-US', {style: "currency",
              currency: "USD",
              minimumFractionDigits: 0,
              maximumFractionDigits: 0,})}/month</div>

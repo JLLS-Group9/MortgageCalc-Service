@@ -42,6 +42,18 @@ html, body {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;
+  outline: none;
+  margin: 0px 0px 8px;
+  box-sizing: border-box;
+}
+
+.innerTitleText {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
 }
 
 .subTitle {
@@ -52,7 +64,18 @@ html, body {
 }
 
 .textOne {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
   font-weight: bold;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.textTwo {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
   font-size: 16px;
   line-height: 1.5;
 }
