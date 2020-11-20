@@ -2,12 +2,12 @@ import React from 'react';
 import styles from '../style.css';
 
 const Table = (props) => (
-  <div>
-    <div>
+  <div >
+    <div className={styles.tableGrid}>
 
-      <div>
+      <div className={styles.tableData}>
         <div>
-          <div>
+          <div className={styles.tableData}>
             <div className={styles.blueDot}></div>
             <div>{'Principal & Interest'}</div>
           </div>

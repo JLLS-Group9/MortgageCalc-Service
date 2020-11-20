@@ -113,12 +113,12 @@ class App extends React.Component {
     return (
       <div>
         <div className={styles.title}>Affordability</div>
-        <br></br>
         <div className={styles.textOne}>Calculate your monthly mortgage payments</div>
         <div>Your est.payment: {Number(this.state.monthly).toLocaleString('en-US', {style: "currency",
              currency: "USD",
              minimumFractionDigits: 0,
              maximumFractionDigits: 0,})}/month</div>
+        <div className={styles.formContainer}>
         <Form
           data={this.state}
           setDownPayment={this.setDownPayment}
@@ -129,8 +129,18 @@ class App extends React.Component {
           onDownPayment={this.onDownPayment}
           calcMonthly={this.calcMonthly}
            />
-        <Graph data={this.state}/>
-        {/* <Table data={this.state}/> */}
+        </div>
+        <div>
+
+        <div className={styles.graphTable}>
+          <div>
+          <Graph data={this.state}/>
+          </div>
+          <div className={styles.tableBox}>
+          <Table data={this.state}/>
+          </div>
+        </div>
+        </div>
       </div>
     );
   }

@@ -97,6 +97,7 @@ html, body {
 
 .formBox {
   display: flex;
+  justify-content:space-around; justify-content:space-between;
   margin-left: -8px;
   margin-right: -8px;
   margin-top: -16px;
@@ -237,4 +238,60 @@ html, body {
 .rates {
   color: rgb(0, 120, 130);
   text-decoration: none;
+}
+
+.graph {
+  width: 260px;
+  height: 260px;
+}
+
+.graphBox {
+  display: block;
+  margin: 32px 32px 32px 16px;
+}
+
+/* .graphCenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0px;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+} */
+
+.tableData {
+  display: flex;
+}
+
+.formContainer {
+  display: block;
+}
+
+.tableBox {
+  box-sizing: border-box;
+  flex: 1 1 0%;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 16px 0px 16px 16px;
+  min-width: 50%;
+}
+
+.tableGrid {
+  width: 100%;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  display: block;
+}
+
+.graphTable {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  justify-content: center;
 }

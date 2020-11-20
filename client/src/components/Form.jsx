@@ -27,11 +27,16 @@ class Form extends React.Component {
       <div className={styles.formTable}>
         <div className={styles.formBox}>
         <form onChange={this.handleInput}>
+          <div>
           <label className={styles.formHeader}>Home Price</label>
+          </div>
+          <div>
           <input className={styles.formPrice}
             type="text"
             name="home_price"
             value={this.props.data.home_price}/>
+          </div>
+          <div>
           <input className={styles.slider}
             type="range"
             name="home_price"
@@ -40,10 +45,14 @@ class Form extends React.Component {
             value={this.props.data.home_price}
             style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.home_price/16000}%, rgb(205, 209, 212) ${this.props.data.home_price/16000}%, rgb(205, 209, 212) 100%)`}}
           />
+          </div>
         </form>
 
         <form onChange={this.handleInput}>
+          <div>
           <label className={styles.formHeader}>Down Payment</label>
+          </div>
+          <div>
           <input
             className={styles.formLeft }
             type="text"
@@ -56,6 +65,8 @@ class Form extends React.Component {
             name="down_payment_percent"
             value={this.props.data.down_payment_percent}
           />
+          </div>
+          <div>
           <input className={styles.slider}
             type="range"
             name="down_payment_percent"
@@ -64,15 +75,21 @@ class Form extends React.Component {
             value={this.props.data.down_payment_percent}
             style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.down_payment_percent/.3}%, rgb(205, 209, 212) ${this.props.data.down_payment_percent/.3}%, rgb(205, 209, 212) 100%)`}}
           />
+          </div>
         </form>
 
         <form className={styles.formHeader} onChange={this.handleInput}>
+          <div>
           <label>Interest Rate</label>
+          </div>
+          <div>
           <input className={styles.formPrice}
             type="text"
             name="interest"
             value = {this.props.data.interest}
           />
+          </div>
+          <div>
           <input className={styles.slider}
             type="range"
             name="interest"
@@ -82,10 +99,14 @@ class Form extends React.Component {
             value={this.props.data.interest}
             style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.interest/.00065}%, rgb(205, 209, 212) ${this.props.data.interest/.00065}%, rgb(205, 209, 212) 100%)`}}
           />
+          </div>
         </form>
 
         <form>
+          <div>
           <label className={styles.formHeader} for="loan type">Loan Type</label>
+          </div>
+          <div>
           <select className={styles.loan}
             onChange={this.handleInput}
             name="loan_type">
@@ -98,6 +119,7 @@ class Form extends React.Component {
             <option value="VA 30-year fixed">VA 30-year fixed</option>
             <option value="VA 15-year fixed">VA 15-year fixed</option>
           </select>
+          </div>
         </form>
         </div>
       </div>
