@@ -112,44 +112,38 @@ class App extends React.Component {
   render() {
     return (
       <div className={styles.app}>
-      <div className={styles.innerApp}>
-        <div className={styles.title}>
-          <div className={styles.titleText}>
-            <div className={styles.innerTitleText}>Affordability</div>
-          </div>
-        </div>
-        <div className={styles.subTitle}>
-          <div className={styles.textOne}>Calculate your monthly mortgage payments</div>
-          <div className={styles.textTwo}>Your est.payment: {Number(this.state.monthly).toLocaleString('en-US', {style: "currency",
-             currency: "USD",
-             minimumFractionDigits: 0,
-             maximumFractionDigits: 0,})}/month</div>
-        </div>
-        <div className={styles.formContainer}>
-          <div className={styles.formBoxOne}>
-              <Form
-              data={this.state}
-              setDownPayment={this.setDownPayment}
-              setPrincipalandInt={this.setPrincipalandInt}
-              onHomePrice={this.onHomePrice}
-              onSlider={this.onSlider}
-              onLoanType={this.onLoanType}
-              onDownPayment={this.onDownPayment}
-              calcMonthly={this.calcMonthly}
-              />
-          </div>
-        </div>
-        <div className={styles.graphTable}>
-          <div >
-            <div>
-            <Graph data={this.state}/>
+        <div className={styles.innerApp}>
+          <div className={styles.title}>
+            <div className={styles.titleText}>
+              <div className={styles.innerTitleText}>Affordability</div>
             </div>
-            <div className={styles.tableBox}>
+          </div>
+          <div className={styles.subTitle}>
+            <div className={styles.textOne}>Calculate your monthly mortgage payments</div>
+            <div className={styles.textTwo}>Your est.payment: {Number(this.state.monthly).toLocaleString('en-US', {style: "currency",
+               currency: "USD",
+               minimumFractionDigits: 0,
+               maximumFractionDigits: 0,})}/month</div>
+          </div>
+          <div className={styles.formContainer}>
+            <div className={styles.formBoxOne}>
+                <Form
+                data={this.state}
+                setDownPayment={this.setDownPayment}
+                setPrincipalandInt={this.setPrincipalandInt}
+                onHomePrice={this.onHomePrice}
+                onSlider={this.onSlider}
+                onLoanType={this.onLoanType}
+                onDownPayment={this.onDownPayment}
+                calcMonthly={this.calcMonthly}
+                />
+            </div>
+          </div>
+          <div className={styles.graphTable}>
+            <Graph data={this.state}/>
             <Table data={this.state}/>
           </div>
         </div>
-        </div>
-      </div>
       </div>
     );
   }

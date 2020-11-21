@@ -415,10 +415,6 @@ html, body {
   text-decoration: none;
 }
 
-.tableData {
-  display: flex;
-}
-
 .tableBox {
   box-sizing: border-box;
   flex: 1 1 0%;
@@ -437,6 +433,99 @@ html, body {
   -webkit-box-flex: 0;
   flex: 0 0 auto;
   display: block;
+}
+
+.tableData {
+  border-style: solid;
+  border-color: transparent;
+  border-width: 4px 2px 0px;
+  width: 100%;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  display: block;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.tableRow {
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.dotAndField {
+  margin-left: 0px;
+  flex: 1 1 0px;
+  width: 100%;
+  margin: 0px 8px;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.fieldValue {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.layer1 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.layer2 {
+  width: 100%;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.fieldName {
+  margin-right: 0px;
+  flex: 1 1 0px;
+  width: 100%;
+  margin: 0px 8px;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.fieldInner {
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.padding {
+  box-sizing: border-box;
+  outline: none;
+  display: flex;
+  padding: 0px 0px 24px;
+}
+
+.tableBottom {
+  box-sizing: border-box;
+  outline: none;
+  display: flex;
+  align-self: flex-start;
+  width: 100%;
+
 }
 
 /* graph */
