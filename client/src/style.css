@@ -81,12 +81,112 @@ html, body {
 }
 
 /* form table */
-.formTable {
+
+.formBoxOne {
+  color: rgb(59, 65, 68);
+  box-sizing: border-box;
+  outline: none;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   border-radius: 8px;
   overflow: hidden;
-  background-color: rgb(245, 246, 247);
+  background-color:  rgb(245, 246, 247);
   padding: 16px;
+}
+
+.formBoxTwo {
+  color: rgb(59,65,68);
+  box-sizing: border-box;
+  outline: none;
+  display: flex;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-top:-16px;
+  flex-wrap: wrap;
+}
+
+.forms {
+  color: rgb(59,65,68);
+  box-sizing: border-box;
+  outline: none;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  display: block;
+  width: 33%;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 16px 8px 0px;
+}
+
+.formsTwo {
+  color: rgb(59, 65,68);
+  outline: none;
+  box-sizing: border-box;
+  flex: 1 1 0%;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 2px;
+}
+
+.f1 {
+  color: rgb(59, 65, 68);
+  outline: none;
+  box-sizing: border-box;
+  flex: 1 1 0%;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 16px;
+  min-height: 48px;
+}
+
+.ff1 {
+  color: rgb(59, 65, 68);
+  outline: none;
+  box-sizing: border-box;
+  flex: 1 1 0%;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 16px;
+  min-height: unset;
+}
+
+.f2 {
+  color: rgb(59, 65, 68);
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.ff2 {
+  color: rgb(59, 65, 68);
+  outline: none;
+  width: 100%;
+  display: inline-block;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  font-weight: bold;
+  border: 1px solid rgb(205, 209, 212);
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  padding: 8px;
+  outline: none;
+  transition: box-shadow 0.15s ease 0s, border-color 0.15s ease 0s;
 }
 
 .slider {
@@ -125,6 +225,9 @@ html, body {
   font-weight: bold;
   font-size: 16px;
   line-height: 1.5;
+  display: block;
+  box-sizing: border-box;
+  outline: none;
 }
 
 .loan {
@@ -152,15 +255,6 @@ html, body {
   box-sizing: border-box;
   outline: none;
   color: rgb(59,65,68);
-}
-
-.formBox {
-  display: flex;
-  justify-content:space-around; justify-content:space-between;
-  margin-left: -8px;
-  margin-right: -8px;
-  margin-top: -16px;
-  flex-wrap: wrap;
 }
 
 .formPrice {
@@ -220,6 +314,27 @@ html, body {
 }
 
 .formRight:focus, .formRight:focus-within {
+  border-color: rgb(0, 173, 187);
+  box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
+}
+
+.formRate {
+  width: 75px;
+  display: inline-block;
+  -webkit-box-align: end;
+  align-items: flex-end;
+  position: relative;
+  border: 1px solid rgb(205, 209, 212);
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  padding: 8px;
+  outline: none;
+  transition: box-shadow 0.15s ease 0s, border-color 0.15s ease 0s;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.formRate:focus, .formRate:focus-within {
   border-color: rgb(0, 173, 187);
   box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
 }

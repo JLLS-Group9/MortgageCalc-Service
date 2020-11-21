@@ -126,16 +126,18 @@ class App extends React.Component {
              maximumFractionDigits: 0,})}/month</div>
         </div>
         <div className={styles.formContainer}>
-          <Form
-            data={this.state}
-            setDownPayment={this.setDownPayment}
-            setPrincipalandInt={this.setPrincipalandInt}
-            onHomePrice={this.onHomePrice}
-            onSlider={this.onSlider}
-            onLoanType={this.onLoanType}
-            onDownPayment={this.onDownPayment}
-            calcMonthly={this.calcMonthly}
-          />
+          <div className={styles.formBoxOne}>
+              <Form
+              data={this.state}
+              setDownPayment={this.setDownPayment}
+              setPrincipalandInt={this.setPrincipalandInt}
+              onHomePrice={this.onHomePrice}
+              onSlider={this.onSlider}
+              onLoanType={this.onLoanType}
+              onDownPayment={this.onDownPayment}
+              calcMonthly={this.calcMonthly}
+              />
+          </div>
         </div>
         <div className={styles.graphTable}>
           <div >
