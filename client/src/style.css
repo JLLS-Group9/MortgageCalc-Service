@@ -581,16 +581,31 @@ html, body {
 
 /* graph */
 .graph {
-  width: 260px;
-  height: 260px;
+  display: block;
+  box-sizing: border-box;
+  width: 280px;
+  height: 280px;
+
 }
 
 .graphBox {
   display: block;
   margin: 32px 32px 32px 16px;
+  outline: none;
+  box-sizing: border-box;
 }
 
-/* .graphCenter {
+.graphBox2 {
+  display: block;
+  outline: none;
+  width: 280px;
+  position: relative;
+  box-sizing: border-box;
+  margin: auto;
+  flex-shrink: 0;
+}
+
+.graphCenter {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -599,7 +614,36 @@ html, body {
   display: flex;
   -webkit-box-pack: center;
   justify-content: center;
-} */
+  outline: none;
+  box-sizing: border-box;
+}
+
+.graphCenter2 {
+  flex-direction: column;
+  width: auto;
+  display: inline-block;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.graphCenterValue {
+  font-size: 38px;
+  font-weight: bold;
+  line-height: 1.05;
+  align-self: center;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.graphCenterText {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
 
 .graphTable {
   display: flex;
