@@ -10,7 +10,7 @@ class Form extends React.Component {
       interest: "",
       down_payment: "",
       down_payment_percent: "",
-      loanType: ""
+      loanType: "30-year fixed"
 
     };
     this.handleInput=this.handleInput.bind(this);
@@ -24,103 +24,112 @@ class Form extends React.Component {
 
   render() {
     return (
-      <div className={styles.formTable}>
-        <div className={styles.formBox}>
-        <form onChange={this.handleInput}>
-          <div>
-          <label className={styles.formHeader}>Home Price</label>
+      <div className={styles.formBoxTwo}>
+        <div className={styles.forms}>
+          <div className={styles.formsTwo}>
+            <form onChange={this.handleInput}>
+              <div className={styles.f1}>
+                <label className={styles.formHeader}>Home Price</label>
+                <input className={styles.formPrice}
+                  type="text"
+                  name="home_price"
+                  value={this.props.data.home_price}
+                />
+              </div>
+              <div className={styles.f2}>
+                <input className={styles.slider}
+                  type="range"
+                  name="home_price"
+                  min = "0"
+                  max = "1600000"
+                  value={this.props.data.home_price}
+                  style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.home_price/16000}%, rgb(205, 209, 212) ${this.props.data.home_price/16000}%, rgb(205, 209, 212) 100%)`}}
+                />
+              </div>
+            </form>
           </div>
-          <div>
-          <input className={styles.formPrice}
-            type="text"
-            name="home_price"
-            value={this.props.data.home_price}/>
-          </div>
-          <div>
-          <input className={styles.slider}
-            type="range"
-            name="home_price"
-            min = "0"
-            max = "1600000"
-            value={this.props.data.home_price}
-            style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.home_price/16000}%, rgb(205, 209, 212) ${this.props.data.home_price/16000}%, rgb(205, 209, 212) 100%)`}}
-          />
-          </div>
-        </form>
+        </div>
 
-        <form onChange={this.handleInput}>
-          <div>
-          <label className={styles.formHeader}>Down Payment</label>
+        <div className={styles.forms}>
+          <div className={styles.formsTwo}>
+            <form onChange={this.handleInput}>
+              <div  className={styles.f1}>
+                <label className={styles.formHeader}>Down Payment</label>
+                <input
+                  className={styles.formLeft }
+                  type="text"
+                  name="down_payment"
+                  value={this.props.data.down_payment}
+                />
+                <input
+                  className={styles.formRight}
+                  type="text"
+                  name="down_payment_percent"
+                  value={this.props.data.down_payment_percent}
+                />
+              </div>
+              <div className={styles.f2}>
+                <input className={styles.slider}
+                  type="range"
+                  name="down_payment_percent"
+                  min="0"
+                  max="30"
+                  value={this.props.data.down_payment_percent}
+                  style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.down_payment_percent/.3}%, rgb(205, 209, 212) ${this.props.data.down_payment_percent/.3}%, rgb(205, 209, 212) 100%)`}}
+                />
+              </div>
+            </form>
           </div>
-          <div>
-          <input
-            className={styles.formLeft }
-            type="text"
-            name="down_payment"
-            value={this.props.data.down_payment}
-          />
-          <input
-            className={styles.formRight}
-            type="text"
-            name="down_payment_percent"
-            value={this.props.data.down_payment_percent}
-          />
-          </div>
-          <div>
-          <input className={styles.slider}
-            type="range"
-            name="down_payment_percent"
-            min="0"
-            max="30"
-            value={this.props.data.down_payment_percent}
-            style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.down_payment_percent/.3}%, rgb(205, 209, 212) ${this.props.data.down_payment_percent/.3}%, rgb(205, 209, 212) 100%)`}}
-          />
-          </div>
-        </form>
+        </div>
 
-        <form className={styles.formHeader} onChange={this.handleInput}>
-          <div>
-          <label>Interest Rate</label>
-          </div>
-          <div>
-          <input className={styles.formPrice}
-            type="text"
-            name="interest"
-            value = {this.props.data.interest}
-          />
-          </div>
-          <div>
-          <input className={styles.slider}
-            type="range"
-            name="interest"
-            min="0"
-            max=".065"
-            step="0.001"
-            value={this.props.data.interest}
-            style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.interest/.00065}%, rgb(205, 209, 212) ${this.props.data.interest/.00065}%, rgb(205, 209, 212) 100%)`}}
-          />
-          </div>
-        </form>
+        <div className={styles.forms}>
+          <div className={styles.formsTwo}>
+            <form className={styles.formHeader} onChange={this.handleInput}>
+              <div className={styles.f1}>
+                <label>Interest Rate</label>
+                <input className={styles.formRate}
+                  type="text"
+                  name="interest"
+                  value = {this.props.data.interest}
+                />
+              </div>
+              <div className={styles.f2}>
+                <input className={styles.slider}
+                  type="range"
+                  name="interest"
+                  min="0"
+                  max=".065"
+                  step="0.001"
+                  value={this.props.data.interest}
+                  style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.interest/.00065}%, rgb(205, 209, 212) ${this.props.data.interest/.00065}%, rgb(205, 209, 212) 100%)`}}
+               />
+              </div>
+           </form>
+         </div>
+        </div>
 
-        <form>
-          <div>
-          <label className={styles.formHeader} for="loan type">Loan Type</label>
+        <div className={styles.forms}>
+          <div className={styles.formsTwo}>
+            <form>
+              <div className={styles.ff1}>
+                <label className={styles.formHeader} for="loan type">Loan Type</label>
+              </div>
+              <div>
+                <select className={styles.loan}
+                  onChange={this.handleInput}
+                  name="loan_type">
+                  <option value="30-year fixed">30-year fixed</option>
+                  <option value="20-year fixed">20-year fixed</option>
+                  <option value="15-year fixed">15-year fixed</option>
+                  <option value="10-year fixed">10-year fixed</option>
+                  <option value="FHA 30-year fixed">FHA 30-year fixed</option>
+                  <option value="FHA 15-year fixed">FHA 15-year fixed</option>
+                  <option value="VA 30-year fixed">VA 30-year fixed</option>
+                  <option value="VA 15-year fixed">VA 15-year fixed</option>
+                </select>
+             </div>
+           </form>
           </div>
-          <div>
-          <select className={styles.loan}
-            onChange={this.handleInput}
-            name="loan_type">
-            <option value="30-year fixed">30-year fixed</option>
-            <option value="20-year fixed">20-year fixed</option>
-            <option value="15-year fixed">15-year fixed</option>
-            <option value="10-year fixed">10-year fixed</option>
-            <option value="FHA 30-year fixed">FHA 30-year fixed</option>
-            <option value="FHA 15-year fixed">FHA 15-year fixed</option>
-            <option value="VA 30-year fixed">VA 30-year fixed</option>
-            <option value="VA 15-year fixed">VA 15-year fixed</option>
-          </select>
-          </div>
-        </form>
         </div>
       </div>
     )

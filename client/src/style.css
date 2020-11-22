@@ -1,3 +1,4 @@
+/* top level */
 html, body {
   margin: 10px;
   padding: 5px;
@@ -10,7 +11,28 @@ html, body {
   position: relative;
 }
 
+.app {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.innerApp {
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  margin: 32px 0px;
+  flex-direction: column;
+}
+
 .title {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0px 0px 8px;
+}
+
+.titleText {
   font-weight: bold;
   font-size: 20px;
   line-height: 1.2;
@@ -20,21 +42,151 @@ html, body {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;
+  outline: none;
+  margin: 0px 0px 8px;
+  box-sizing: border-box;
+}
+
+.innerTitleText {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.subTitle {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0px 0px 16px;
 }
 
 .textOne {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
   font-weight: bold;
   font-size: 16px;
   line-height: 1.5;
 }
 
+.textTwo {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 16px;
+  line-height: 1.5;
+}
 
-.formTable {
+/* form table */
+
+.formBoxOne {
+  color: rgb(59, 65, 68);
+  box-sizing: border-box;
+  outline: none;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   border-radius: 8px;
   overflow: hidden;
-  background-color: rgb(245, 246, 247);
+  background-color:  rgb(245, 246, 247);
   padding: 16px;
+}
+
+.formBoxTwo {
+  color: rgb(59,65,68);
+  box-sizing: border-box;
+  outline: none;
+  display: flex;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-top:-16px;
+  flex-wrap: wrap;
+}
+
+.forms {
+  color: rgb(59,65,68);
+  box-sizing: border-box;
+  outline: none;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  display: block;
+  width: 33%;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 16px 8px 0px;
+}
+
+.formsTwo {
+  color: rgb(59, 65,68);
+  outline: none;
+  box-sizing: border-box;
+  flex: 1 1 0%;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 2px;
+}
+
+.f1 {
+  color: rgb(59, 65, 68);
+  outline: none;
+  box-sizing: border-box;
+  flex: 1 1 0%;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 16px;
+  min-height: 48px;
+}
+
+.ff1 {
+  color: rgb(59, 65, 68);
+  outline: none;
+  box-sizing: border-box;
+  flex: 1 1 0%;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 16px;
+  min-height: unset;
+}
+
+.f2 {
+  color: rgb(59, 65, 68);
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.ff2 {
+  color: rgb(59, 65, 68);
+  outline: none;
+  width: 100%;
+  display: inline-block;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  font-weight: bold;
+  border: 1px solid rgb(205, 209, 212);
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  padding: 8px;
+  outline: none;
+  transition: box-shadow 0.15s ease 0s, border-color 0.15s ease 0s;
 }
 
 .slider {
@@ -73,6 +225,9 @@ html, body {
   font-weight: bold;
   font-size: 16px;
   line-height: 1.5;
+  display: block;
+  box-sizing: border-box;
+  outline: none;
 }
 
 .loan {
@@ -95,13 +250,11 @@ html, body {
   box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
 }
 
-.formBox {
-  display: flex;
-  justify-content:space-around; justify-content:space-between;
-  margin-left: -8px;
-  margin-right: -8px;
-  margin-top: -16px;
-  flex-wrap: wrap;
+.formContainer {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  color: rgb(59,65,68);
 }
 
 .formPrice {
@@ -165,6 +318,28 @@ html, body {
   box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
 }
 
+.formRate {
+  width: 75px;
+  display: inline-block;
+  -webkit-box-align: end;
+  align-items: flex-end;
+  position: relative;
+  border: 1px solid rgb(205, 209, 212);
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  padding: 8px;
+  outline: none;
+  transition: box-shadow 0.15s ease 0s, border-color 0.15s ease 0s;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.formRate:focus, .formRate:focus-within {
+  border-color: rgb(0, 173, 187);
+  box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
+}
+
+/* data table */
 .blueDot {
   background-color: rgb(5, 34, 134);
   width: 16px;
@@ -218,6 +393,9 @@ html, body {
   color: rgb(255, 255, 255);
   background-color: rgb(0, 120, 130);
   border-color: transparent;
+  text-decoration: none;
+  outline: none;
+  box-sizing: border-box;
 }
 
 .tableButton:hover {
@@ -228,45 +406,55 @@ html, body {
   text-decoration: none;
 }
 
-.todaysRates {
+.buttonContainer {
+  border-style: solid;
+  border-color: transparent;
+  border-width: 4px 2px 0px;
   width: 100%;
-  display: inline-block;
-  text-align: center;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  display: block;
+  outline: none;
+  box-sizing: border-box;
+}
 
+.orContainer {
+  text-align: center;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 4px 2px 0px;
+  width: 100%;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  display: block;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.todaysRates {
+  border-style: solid;
+  border-color: transparent;
+  border-width: 4px 2px 0px;
+  width: 100%;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  display: block;
+  outline: none;
+  box-sizing: border-box;
 }
 
 .rates {
   color: rgb(0, 120, 130);
   text-decoration: none;
-}
-
-.graph {
-  width: 260px;
-  height: 260px;
-}
-
-.graphBox {
-  display: block;
-  margin: 32px 32px 32px 16px;
-}
-
-/* .graphCenter {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0px;
   width: 100%;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-} */
-
-.tableData {
-  display: flex;
+  display: inline-block;
+  text-align: center;
+  outline: none;
+  box-sizing: border-box;
 }
 
-.formContainer {
-  display: block;
+.rates:-webkit-any-link {
+  cursor: pointer;
 }
 
 .tableBox {
@@ -289,9 +477,179 @@ html, body {
   display: block;
 }
 
+.tableData {
+  border-style: solid;
+  border-color: transparent;
+  border-width: 4px 2px 0px;
+  width: 100%;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  display: block;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.tableRow {
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.dotAndField {
+  margin-left: 0px;
+  flex: 1 1 0px;
+  width: 100%;
+  margin: 0px 8px;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.fieldValue {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.layer1 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.layer2 {
+  width: 100%;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.fieldName {
+  margin-right: 0px;
+  flex: 1 1 0px;
+  width: 100%;
+  margin: 0px 8px;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.fieldInner {
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.padding {
+  box-sizing: border-box;
+  outline: none;
+  display: flex;
+  padding: 0px 0px 24px;
+}
+
+.tableBottom {
+  box-sizing: border-box;
+  outline: none;
+  display: flex;
+  align-self: flex-start;
+  width: 100%;
+}
+
+.tableBottomInner {
+  flex-wrap: wrap;
+  outline: none;
+  box-sizing: border-box;
+  display: flex;
+  margin-left: -2px;
+  margin-right: -2px;
+  width: 100%;
+}
+
+/* graph */
+.graph {
+  display: block;
+  box-sizing: border-box;
+  width: 280px;
+  height: 280px;
+
+}
+
+.graphBox {
+  display: block;
+  margin: 32px 32px 32px 16px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.graphBox2 {
+  display: block;
+  outline: none;
+  width: 280px;
+  position: relative;
+  box-sizing: border-box;
+  margin: auto;
+  flex-shrink: 0;
+}
+
+.graphCenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0px;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.graphCenter2 {
+  flex-direction: column;
+  width: auto;
+  display: inline-block;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.graphCenterValue {
+  font-size: 38px;
+  font-weight: bold;
+  line-height: 1.05;
+  align-self: center;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.graphCenterText {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
 .graphTable {
   display: flex;
   flex-wrap: wrap;
   -webkit-box-pack: center;
   justify-content: center;
+  box-sizing: border-box;
+  outline: none;
 }
