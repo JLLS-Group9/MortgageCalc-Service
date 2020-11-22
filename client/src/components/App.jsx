@@ -20,7 +20,8 @@ class App extends React.Component {
       other: "",
       monthly: "",
       home_ins: "",
-      loan_type: ""
+      loan_type: "",
+      circle: {}
     };
     this.retrieveCost = this.retrieveCost.bind(this);
     this.setDefaults = this.setDefaults.bind(this);
@@ -34,6 +35,7 @@ class App extends React.Component {
     this.calcMonthly = this.calcMonthly.bind(this);
     this.setInterestFromLoan = this.setInterestFromLoan.bind(this);
     this.setMortgageIns = this.setMortgageIns.bind(this);
+    this.setCircle = this.setCircle.bind(this);
   }
 
   componentDidMount() {
@@ -50,6 +52,7 @@ class App extends React.Component {
       .then(this.setDownPayment)
       .then(this.setPrincipalandInt)
       .then(this.calcMonthly)
+      .then(this.setCircle)
   }
 
   setDefaults(loan_type) {
@@ -79,6 +82,7 @@ class App extends React.Component {
     this.setMortgageIns()
     //need to recalc principal and interest
     this.calcMonthly()
+    this.setCircle()
   }
   //set interest LoanType
   onLoanType(e) {
@@ -110,22 +114,35 @@ class App extends React.Component {
     )
   }
 
-  setDasharray(metric) {
-  let value1 = (this.state.metric/this.state.monthly) * 100;
-  let value2 = 100 - value1;
-  return `${value1} ${value2}`;
-  }
+  // setDasharray(metric) {
+  // let value1 = (this.state.metric/this.state.monthly) * 100;
+  // let value2 = 100 - value1;
+  // return `${value1} ${value2}`;
+  // }
 
-  setDashoffset() {
-    //first offset always set to 25
-    //next offset =
-    // (- (sum of prior metrics' dasharry's) + 125)
+  setCircle() {
+    let monthly = this.state.monthly;
+    let principal = this.state.principalAndInterest/monthly;
+    let tax = this.state.property_tax/12/monthly;
+    let insurance = this.state.home_ins/monthly;
+    let hoa = this.state.hoa/monthly;
+    let other = this.state.other/monthly;
 
-    //Principal
-    //Tax
-    //Insurance
-    //Hoa
-    //Other
+    let dash = {};
+
+    dash.principal = `${principal*100} ${100-principal*100}`;
+    dash.tax = `${tax*100} ${100-tax*100}`;
+    dash.insurance = `${insurance*100} ${100-insurance*100}`;
+    dash.hoa = `${hoa*100} ${100-hoa*100}`;
+    dash.other = `${other*100} ${100-other*100}`;
+
+    dash.principaloffset = 25;
+    dash.taxoffset = principal*-100+125;
+    dash.insuranceoffset = dash.taxoffset-(tax*100);
+    dash.hoaoffset = dash.insuranceoffset-(insurance*100);
+    dash.otheroffset = dash.hoaoffset-(hoa*100);
+
+    this.setState({circle: dash})
   }
 
 
