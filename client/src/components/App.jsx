@@ -33,6 +33,7 @@ class App extends React.Component {
     this.onDownPayment = this.onDownPayment.bind(this);
     this.calcMonthly = this.calcMonthly.bind(this);
     this.setInterestFromLoan = this.setInterestFromLoan.bind(this);
+    this.setMortgageIns = this.setMortgageIns.bind(this);
   }
 
   componentDidMount() {
@@ -75,6 +76,7 @@ class App extends React.Component {
     this.setState({[e.target.name]: e.target.value})
     this.setDownPayment()
     this.setPrincipalandInt()
+    this.setMortgageIns()
     //need to recalc principal and interest
     this.calcMonthly()
   }
@@ -98,6 +100,14 @@ class App extends React.Component {
 
   setInterestFromLoan() {
     this.setState({interest:Type[this.state.loan_type]})
+  }
+
+  setMortgageIns() {
+    if (this.state.down_payment_percent < 20) {
+      this.setState({other: (this.state.home_price-this.state.down_payment)*.01/12 })
+    } else (
+      this.setState({other: 0})
+    )
   }
 
   setDasharray(metric) {
