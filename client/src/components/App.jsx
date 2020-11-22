@@ -20,7 +20,7 @@ class App extends React.Component {
       other: "",
       monthly: "",
       home_ins: "",
-
+      loan_type: ""
     };
     this.retrieveCost = this.retrieveCost.bind(this);
     this.setDefaults = this.setDefaults.bind(this);
@@ -32,6 +32,7 @@ class App extends React.Component {
     this.onLoanType = this.onLoanType.bind(this);
     this.onDownPayment = this.onDownPayment.bind(this);
     this.calcMonthly = this.calcMonthly.bind(this);
+    this.setInterestFromLoan = this.setInterestFromLoan.bind(this);
   }
 
   componentDidMount() {
@@ -51,7 +52,7 @@ class App extends React.Component {
   }
 
   setDefaults(loan_type) {
-    this.setState({down_payment_percent: 20, interest: Type[loan_type], home_ins: 75, other: 0})
+    this.setState({down_payment_percent: 20, interest: Type[loan_type], home_ins: 75, other: 0, loan_type: loan_type})
   }
 
   setDownPayment() {
@@ -68,6 +69,9 @@ class App extends React.Component {
   }
   //move sliders
   onSlider(e) {
+    if('loan_type' === e.target.name) {
+      this.setState({interest: Type[e.target.value]})
+    }
     this.setState({[e.target.name]: e.target.value})
     this.setDownPayment()
     this.setPrincipalandInt()
@@ -92,6 +96,29 @@ class App extends React.Component {
       this.state.other})
   }
 
+  setInterestFromLoan() {
+    this.setState({interest:Type[this.state.loan_type]})
+  }
+
+  setDasharray(metric) {
+  let value1 = (this.state.metric/this.state.monthly) * 100;
+  let value2 = 100 - value1;
+  return `${value1} ${value2}`;
+  }
+
+  setDashoffset() {
+    //first offset always set to 25
+    //next offset =
+    // (- (sum of prior metrics' dasharry's) + 125)
+
+    //Principal
+    //Tax
+    //Insurance
+    //Hoa
+    //Other
+  }
+
+
   pmt(ir, np, pv) {
     /*
      * ir   - interest rate per month
@@ -107,7 +134,7 @@ class App extends React.Component {
     pmt = - ir * pv * (pvif) / (pvif - 1);
 
     return pmt;
-}
+  }
 
   render() {
     return (

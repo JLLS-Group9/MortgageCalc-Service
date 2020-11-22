@@ -10,7 +10,7 @@ class Form extends React.Component {
       interest: "",
       down_payment: "",
       down_payment_percent: "",
-      loanType: ""
+      loanType: "30-year fixed"
 
     };
     this.handleInput=this.handleInput.bind(this);
