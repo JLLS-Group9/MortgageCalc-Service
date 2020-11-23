@@ -8,7 +8,10 @@ const PORT = 8082;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(express.static(__dirname + '/../client/dist'));
+//app.use(express.static(__dirname + '/../client/dist'));
+app.use('/', express.static('public'));
+app.use('/api/homes/:id/', express.static('public'));
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

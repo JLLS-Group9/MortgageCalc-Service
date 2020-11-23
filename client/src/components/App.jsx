@@ -39,12 +39,17 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.retrieveCost(1);
+    this.retrieveCost();
   }
 
   //make a request for a given id
-  retrieveCost(id) {
-    axios.get(`/api/homes/${id}/cost`)
+  retrieveCost() {
+    //serve static files at '/' endpoint and '/homes/:id/ endpoint
+    //let id = window.location.pathname => /
+    let endpoint = `${window.location.pathname}cost`
+    console.log(endpoint)
+    //axios.get(`/api/homes/${id}/cost`)
+    axios.get(endpoint)
       .then((data) => {
         this.setState({hoa: data.data[0]['hoa'], home_price: data.data[0]['home_price'], property_tax: data.data[0]['property_tax']})
       })
