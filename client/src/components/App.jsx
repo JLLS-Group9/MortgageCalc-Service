@@ -32,6 +32,7 @@ class App extends React.Component {
     this.onSlider = this.onSlider.bind(this);
     this.onLoanType = this.onLoanType.bind(this);
     this.onDownPayment = this.onDownPayment.bind(this);
+    this.setTax = this.setTax.bind(this);
     this.calcMonthly = this.calcMonthly.bind(this);
     this.setInterestFromLoan = this.setInterestFromLoan.bind(this);
     this.setMortgageIns = this.setMortgageIns.bind(this);
@@ -47,17 +48,18 @@ class App extends React.Component {
     //serve static files at '/' endpoint and '/homes/:id/ endpoint
     //let id = window.location.pathname => /
     let endpoint = `${window.location.pathname}cost`
-    console.log(endpoint)
+    //console.log(endpoint)
     //axios.get(`/api/homes/${id}/cost`)
     axios.get(endpoint)
       .then((data) => {
-        this.setState({hoa: data.data[0]['hoa'], home_price: data.data[0]['home_price'], property_tax: data.data[0]['property_tax']})
+        this.setState({hoa: data.data[0]['hoa'], home_price: data.data[0]['home_price'], property_tax: Math.round(data.data[0]['property_tax']/12)})
       })
       .then(this.setDefaults("30-year fixed"))
       .then(this.setDownPayment)
       .then(this.setPrincipalandInt)
       .then(this.calcMonthly)
       .then(this.setCircle)
+      .catch(err=>console.log(err))
   }
 
   setDefaults(loan_type) {
@@ -69,9 +71,12 @@ class App extends React.Component {
   }
 
   setPrincipalandInt() {
-    this.setState({principalAndInterest: -this.pmt(this.state.interest/12, 360, this.state.home_price-this.state.down_payment)})
+    this.setState({principalAndInterest: Math.round(-this.pmt(this.state.interest/12, 360, this.state.home_price-this.state.down_payment))})
   }
 
+  setTax() {
+    this.setState({property_tax: Math.round(this.state.home_price*0.0069/12)})
+  }
   //set homeprice
   onHomePrice(value) {
     this.setState({home_price: value})
@@ -81,10 +86,14 @@ class App extends React.Component {
     if('loan_type' === e.target.name) {
       this.setState({interest: Type[e.target.value]})
     }
-    this.setState({[e.target.name]: e.target.value})
     this.setDownPayment()
+    this.setState({[e.target.name]: e.target.value})
+    if(this.state.home_price === 0) {
+      this.setState({down_payment: 0})
+    }
     this.setPrincipalandInt()
     this.setMortgageIns()
+    this.setTax()
     //need to recalc principal and interest
     this.calcMonthly()
     this.setCircle()
@@ -102,7 +111,7 @@ class App extends React.Component {
     this.setState({monthly:
       this.state.principalAndInterest +
       this.state.hoa +
-      this.state.property_tax/12 +
+      this.state.property_tax +
       this.state.home_ins +
       this.state.other})
   }
@@ -128,7 +137,7 @@ class App extends React.Component {
   setCircle() {
     let monthly = this.state.monthly;
     let principal = this.state.principalAndInterest/monthly;
-    let tax = this.state.property_tax/12/monthly;
+    let tax = this.state.property_tax/monthly;
     let insurance = this.state.home_ins/monthly;
     let hoa = this.state.hoa/monthly;
     let other = this.state.other/monthly;

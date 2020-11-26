@@ -39,7 +39,7 @@ const TableGrid = (props) => (
             </div>
           </div>
         </div>
-        <div className={styles.fieldValue}>{(props.data.property_tax/12).toLocaleString('en-US', {style: "currency",
+        <div className={styles.fieldValue}>{(props.data.property_tax).toLocaleString('en-US', {style: "currency",
           currency: "USD",
           minimumFractionDigits: 0,
           maximumFractionDigits: 0,})}

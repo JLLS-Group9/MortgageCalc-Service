@@ -25,9 +25,12 @@ class Form extends React.Component {
   render() {
     return (
       <div className={styles.formBoxTwo}>
+          {/* home price form container */}
         <div className={styles.forms}>
-          <div className={styles.formsTwo}>
-            <form onChange={this.handleInput}>
+            {/* home price inner container */}
+
+            <form className={styles.formsTwo} onChange={this.handleInput} >
+              {/* container for input form */}
               <div className={styles.f1}>
                 <label className={styles.formHeader}>Home Price</label>
                 <input className={styles.formPrice}
@@ -36,6 +39,7 @@ class Form extends React.Component {
                   value={this.props.data.home_price}
                 />
               </div>
+              {/* container for slider */}
               <div className={styles.f2}>
                 <input className={styles.slider}
                   type="range"
@@ -47,13 +51,13 @@ class Form extends React.Component {
                 />
               </div>
             </form>
-          </div>
+
         </div>
 
         <div className={styles.forms}>
           <div className={styles.formsTwo}>
             <form onChange={this.handleInput}>
-              <div  className={styles.f1}>
+              <div className={styles.f1}>
                 <label className={styles.formHeader}>Down Payment</label>
                 <input
                   className={styles.formLeft }
@@ -81,10 +85,10 @@ class Form extends React.Component {
             </form>
           </div>
         </div>
-
+          {/* interest rate form container */}
         <div className={styles.forms}>
-          <div className={styles.formsTwo}>
-            <form className={styles.formHeader} onChange={this.handleInput}>
+
+            <form className={styles.formsTwo} className={styles.formHeader} onChange={this.handleInput}>
               <div className={styles.f1}>
                 <label>Interest Rate</label>
                 <input className={styles.formRate}
@@ -105,9 +109,9 @@ class Form extends React.Component {
                />
               </div>
            </form>
-         </div>
-        </div>
 
+        </div>
+          {/* loan type form container */}
         <div className={styles.forms}>
           <div className={styles.formsTwo}>
             <form>

@@ -84,6 +84,13 @@ html, body {
 
 /* form table */
 
+.formContainer {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  color: rgb(59,65,68);
+}
+
 .formBoxOne {
   color: rgb(59, 65, 68);
   box-sizing: border-box;
@@ -127,6 +134,7 @@ html, body {
   box-sizing: border-box;
   flex: 1 1 0%;
   display: flex;
+  width: 100%;
   -webkit-box-align: center;
   align-items: center;
   flex-direction: column;
@@ -148,6 +156,17 @@ html, body {
   min-height: 48px;
 }
 
+.f2 {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  color: rgb(59, 65, 68);
+  outline: none;
+  box-sizing: border-box;
+}
+
 .ff1 {
   color: rgb(59, 65, 68);
   outline: none;
@@ -161,17 +180,6 @@ html, body {
   align-items: center;
   margin-bottom: 16px;
   min-height: unset;
-}
-
-.f2 {
-  color: rgb(59, 65, 68);
-  outline: none;
-  box-sizing: border-box;
-  width: 100%;
-  height: 20px;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
 }
 
 .ff2 {
@@ -250,13 +258,6 @@ html, body {
 .loan:focus, .loan:focus-within {
   border-color: rgb(0, 173, 187);
   box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
-}
-
-.formContainer {
-  display: block;
-  box-sizing: border-box;
-  outline: none;
-  color: rgb(59,65,68);
 }
 
 .formPrice {
