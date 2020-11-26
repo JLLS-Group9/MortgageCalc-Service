@@ -1,6 +1,6 @@
 module.exports = {
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'ROOT1#root',
   database: 'trulia'
 };
