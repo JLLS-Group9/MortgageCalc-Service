@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../style.css';
+import NumberFormat from 'react-number-format';
 
 class Form extends React.Component {
   constructor(props) {
@@ -29,19 +30,27 @@ class Form extends React.Component {
         <div className={styles.forms}>
             {/* home price inner container */}
 
-            <form className={styles.formsTwo} onChange={this.handleInput} >
+            <form className={styles.formsTwo} >
               {/* container for input form */}
               <div className={styles.f1}>
                 <label className={styles.formHeader}>Home Price</label>
-                <input className={styles.formPrice}
-                  type="text"
+                <NumberFormat className={styles.formPrice}
                   name="home_price"
+                  thousandSeparator={true}
+                  prefix={'$'}
+                  type="text"
+                  decimalScale="0"
+                  onValueChange={(values) => {
+                    const {formattedValue, value} = values;
+                    this.props.onFormatted(value)
+                  }}
                   value={this.props.data.home_price}
                 />
               </div>
               {/* container for slider */}
               <div className={styles.f2}>
                 <input className={styles.slider}
+                  onChange={this.handleInput}
                   type="range"
                   name="home_price"
                   min = "0"
@@ -59,14 +68,17 @@ class Form extends React.Component {
             <form onChange={this.handleInput}>
               <div className={styles.f1}>
                 <label className={styles.formHeader}>Down Payment</label>
-                <input
+                <NumberFormat
                   className={styles.formLeft }
+                  thousandSeparator={true}
+                  prefix={'$'}
                   type="text"
                   name="down_payment"
                   value={this.props.data.down_payment}
                 />
-                <input
+                <NumberFormat
                   className={styles.formRight}
+                  suffix={'%'}
                   type="text"
                   name="down_payment_percent"
                   value={this.props.data.down_payment_percent}
@@ -91,7 +103,8 @@ class Form extends React.Component {
             <form className={styles.formsTwo} className={styles.formHeader} onChange={this.handleInput}>
               <div className={styles.f1}>
                 <label>Interest Rate</label>
-                <input className={styles.formRate}
+                <NumberFormat className={styles.formRate}
+                  suffix={'%'}
                   type="text"
                   name="interest"
                   value = {this.props.data.interest}
@@ -102,10 +115,10 @@ class Form extends React.Component {
                   type="range"
                   name="interest"
                   min="0"
-                  max=".065"
-                  step="0.001"
+                  max="6.5"
+                  step="0.1"
                   value={this.props.data.interest}
-                  style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.interest/.00065}%, rgb(205, 209, 212) ${this.props.data.interest/.00065}%, rgb(205, 209, 212) 100%)`}}
+                  style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${this.props.data.interest/.065}%, rgb(205, 209, 212) ${this.props.data.interest/.065}%, rgb(205, 209, 212) 100%)`}}
                />
               </div>
            </form>

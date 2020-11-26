@@ -4,6 +4,7 @@ import Form from './Form.jsx';
 import Graph from './Graph.jsx';
 import Table from './Table.jsx';
 import axios from 'axios';
+import NumberFormat from 'react-number-format';
 
 class App extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class App extends React.Component {
     this.calcMonthly = this.calcMonthly.bind(this);
     this.setInterestFromLoan = this.setInterestFromLoan.bind(this);
     this.setMortgageIns = this.setMortgageIns.bind(this);
+    this.onFormatted = this.onFormatted.bind(this);
     this.setCircle = this.setCircle.bind(this);
   }
 
@@ -71,7 +73,7 @@ class App extends React.Component {
   }
 
   setPrincipalandInt() {
-    this.setState({principalAndInterest: Math.round(-this.pmt(this.state.interest/12, 360, this.state.home_price-this.state.down_payment))})
+    this.setState({principalAndInterest: Math.round(-this.pmt(this.state.interest/100/12, 360, this.state.home_price-this.state.down_payment))})
   }
 
   setTax() {
@@ -97,6 +99,10 @@ class App extends React.Component {
     //need to recalc principal and interest
     this.calcMonthly()
     this.setCircle()
+  }
+
+  onFormatted(value) {
+    this.setState({home_price: value})
   }
   //set interest LoanType
   onLoanType(e) {
@@ -204,6 +210,7 @@ class App extends React.Component {
                 onLoanType={this.onLoanType}
                 onDownPayment={this.onDownPayment}
                 calcMonthly={this.calcMonthly}
+                onFormatted={this.onFormatted}
                 />
             </div>
           </div>
@@ -220,12 +227,12 @@ class App extends React.Component {
 export default App;
 
 var Type = {
-  "30-year fixed": 0.0276,
-  "20-year fixed": 0.0291,
-  "15-year fixed": 0.0247,
-  "10-year fixed": 0.0281,
-  "FHA 30-year fixed": 0.0235,
-  "FHA 15-year fixed": 0.0225,
-  "VA 30-year fixed": 0.027,
-  "VA 15-year fixed": 0.0217
+  "30-year fixed": 2.76,
+  "20-year fixed": 2.91,
+  "15-year fixed": 2.47,
+  "10-year fixed": 2.81,
+  "FHA 30-year fixed": 2.35,
+  "FHA 15-year fixed": 2.25,
+  "VA 30-year fixed": 2.7,
+  "VA 15-year fixed": 2.17
 };
