@@ -88,21 +88,29 @@ class App extends React.Component {
     if('loan_type' === e.target.name) {
       this.setState({interest: Type[e.target.value]})
     }
-    this.setDownPayment()
     this.setState({[e.target.name]: e.target.value})
-    if(this.state.home_price === 0) {
-      this.setState({down_payment: 0})
-    }
-    this.setPrincipalandInt()
-    this.setMortgageIns()
-    this.setTax()
+    // setTimeout(()=>{
+      //   if (this.state.home_price === 0) {
+        //   this.setState({down_payment: 0})
+        //   }
+        // },0)
+    setTimeout(()=>this.setDownPayment(),0)
+    setTimeout(()=>this.setPrincipalandInt(),0)
+    setTimeout(()=>this.setMortgageIns(),0)
+    setTimeout(()=>this.setTax(),0)
+    setTimeout(()=>this.calcMonthly(),0)
     //need to recalc principal and interest
-    this.calcMonthly()
-    this.setCircle()
+    setTimeout(()=>this.setCircle(),0)
   }
 
   onFormatted(value) {
     this.setState({home_price: value})
+    setTimeout(()=>this.setDownPayment(),0)
+    setTimeout(()=>this.setMortgageIns(),1000)
+    setTimeout(()=>this.setTax(),1000)
+    setTimeout(()=>this.setPrincipalandInt(),1000)
+    setTimeout(()=>this.calcMonthly(),1000)
+    setTimeout(()=>this.setCircle(),1000)
   }
   //set interest LoanType
   onLoanType(e) {
@@ -115,11 +123,11 @@ class App extends React.Component {
 
   calcMonthly() {
     this.setState({monthly:
-      this.state.principalAndInterest +
-      this.state.hoa +
-      this.state.property_tax +
-      this.state.home_ins +
-      this.state.other})
+      Math.round(this.state.principalAndInterest) +
+      Math.round(this.state.property_tax) +
+      Math.round(this.state.hoa) +
+      Math.round(this.state.home_ins) +
+      Math.round(this.state.other)})
   }
 
   setInterestFromLoan() {
@@ -128,7 +136,7 @@ class App extends React.Component {
 
   setMortgageIns() {
     if (this.state.down_payment_percent < 20) {
-      this.setState({other: (this.state.home_price-this.state.down_payment)*.01/12 })
+      this.setState({other: Math.round((this.state.home_price-this.state.down_payment)*.01/12) })
     } else (
       this.setState({other: 0})
     )
