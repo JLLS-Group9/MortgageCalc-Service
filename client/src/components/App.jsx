@@ -22,16 +22,17 @@ class App extends React.Component {
       monthly: "",
       home_ins: "",
       loan_type: "",
+      max: 1500000,
       circle: {}
     };
     this.retrieveCost = this.retrieveCost.bind(this);
     this.setDefaults = this.setDefaults.bind(this);
     this.setDownPayment = this.setDownPayment.bind(this);
+    this.setPercentage = this.setPercentage.bind(this);
     this.setPrincipalandInt = this.setPrincipalandInt.bind(this);
     this.pmt = this.pmt.bind(this);
     this.onHomePrice = this.onHomePrice.bind(this);
     this.onSlider = this.onSlider.bind(this);
-    this.onLoanType = this.onLoanType.bind(this);
     this.onDownPayment = this.onDownPayment.bind(this);
     this.setTax = this.setTax.bind(this);
     this.calcMonthly = this.calcMonthly.bind(this);
@@ -47,11 +48,7 @@ class App extends React.Component {
 
   //make a request for a given id
   retrieveCost() {
-    //serve static files at '/' endpoint and '/homes/:id/ endpoint
-    //let id = window.location.pathname => /
     let endpoint = `${window.location.pathname}cost`
-    //console.log(endpoint)
-    //axios.get(`/api/homes/${id}/cost`)
     axios.get(endpoint)
       .then((data) => {
         this.setState({hoa: data.data[0]['hoa'], home_price: data.data[0]['home_price'], property_tax: Math.round(data.data[0]['property_tax']/12)})
@@ -72,6 +69,10 @@ class App extends React.Component {
     this.setState({down_payment: this.state.home_price*this.state.down_payment_percent/100 })
   }
 
+  setPercentage() {
+    this.setState({down_payment_percent: this.state.down_payment/this.state.home_price*100})
+  }
+
   setPrincipalandInt() {
     this.setState({principalAndInterest: Math.round(-this.pmt(this.state.interest/100/12, 360, this.state.home_price-this.state.down_payment))})
   }
@@ -87,36 +88,34 @@ class App extends React.Component {
   onSlider(e) {
     if('loan_type' === e.target.name) {
       this.setState({interest: Type[e.target.value]})
+      setTimeout(()=> (
+        this.setState({
+          down_payment_percent: DownPayment[e.target.value]
+        })
+      ),0)
     }
     this.setState({[e.target.name]: e.target.value})
-    // setTimeout(()=>{
-      //   if (this.state.home_price === 0) {
-        //   this.setState({down_payment: 0})
-        //   }
-        // },0)
-    setTimeout(()=>this.setDownPayment(),0)
     setTimeout(()=>this.setPrincipalandInt(),0)
     setTimeout(()=>this.setMortgageIns(),0)
     setTimeout(()=>this.setTax(),0)
     setTimeout(()=>this.calcMonthly(),0)
-    //need to recalc principal and interest
     setTimeout(()=>this.setCircle(),0)
   }
 
-  onFormatted(value) {
-    this.setState({home_price: value})
+  onFormatted(value, field) {
+    this.setState({[field]: value})
+    if(field === "down_payment_percent") {
+      setTimeout(()=>this.setPercentage(),0)
+    }
     setTimeout(()=>this.setDownPayment(),0)
+
     setTimeout(()=>this.setMortgageIns(),1000)
     setTimeout(()=>this.setTax(),1000)
     setTimeout(()=>this.setPrincipalandInt(),1000)
     setTimeout(()=>this.calcMonthly(),1000)
     setTimeout(()=>this.setCircle(),1000)
   }
-  //set interest LoanType
-  onLoanType(e) {
-    this.setStae({interest: Type[e.target.value]})
-  }
-  //set down payment percentage from down payment
+
   onDownPayment() {
     this.setState({down_payment_percent: this.state.down_payment/this.state.home_price})
   }
@@ -141,12 +140,6 @@ class App extends React.Component {
       this.setState({other: 0})
     )
   }
-
-  // setDasharray(metric) {
-  // let value1 = (this.state.metric/this.state.monthly) * 100;
-  // let value2 = 100 - value1;
-  // return `${value1} ${value2}`;
-  // }
 
   setCircle() {
     let monthly = this.state.monthly;
@@ -239,8 +232,19 @@ var Type = {
   "20-year fixed": 2.91,
   "15-year fixed": 2.47,
   "10-year fixed": 2.81,
-  "FHA 30-year fixed": 2.35,
-  "FHA 15-year fixed": 2.25,
-  "VA 30-year fixed": 2.7,
-  "VA 15-year fixed": 2.17
+  "FHA 30-year fixed": 0,
+  "FHA 15-year fixed": 0,
+  "VA 30-year fixed": 2.52,
+  "VA 15-year fixed": 2.47
+};
+
+var DownPayment = {
+  "30-year fixed": 20,
+  "20-year fixed": 20,
+  "15-year fixed": 20,
+  "10-year fixed": 20,
+  "FHA 30-year fixed": 3.5,
+  "FHA 15-year fixed": 3.5,
+  "VA 30-year fixed": 0,
+  "VA 15-year fixed": 0
 };
