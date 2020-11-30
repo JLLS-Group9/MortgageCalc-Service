@@ -12,6 +12,8 @@ const FormInterestRate = (props) => (
       <NumberFormat className={styles.formRate}
         suffix={'%'}
         type="text"
+        decimalScale="2"
+        fixedDecimalScale="true"
         name="interest"
         onValueChange={(values) => {
           const {formattedValue, value} = values;
@@ -27,7 +29,7 @@ const FormInterestRate = (props) => (
         name="interest"
         min="0"
         max="6.5"
-        step="0.1"
+        step="0.10"
         value={props.data.interest}
         style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${props.data.interest/.065}%, rgb(205, 209, 212) ${props.data.interest/.065}%, rgb(205, 209, 212) 100%)`}}
      />
