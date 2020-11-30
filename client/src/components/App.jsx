@@ -53,6 +53,7 @@ class App extends React.Component {
       .then((data) => {
         this.setState({hoa: data.data[0]['hoa'], home_price: data.data[0]['home_price'], property_tax: data.data[0]['property_tax']/12})
       })
+      .then(this.setState({down_payment_percent: 20, down_payment: this.state.home_price*.20}))
       .then(this.setDefaults("30-year fixed"))
       .then(this.setDownPayment)
       .then(this.setPrincipalandInt)
@@ -95,12 +96,12 @@ class App extends React.Component {
       ),0)
     }
     this.setState({[e.target.name]: e.target.value})
-    if(e.target.name !== "down_payment_percent") {
-      setTimeout(()=>this.setPercentage(),0)
-    }
-    if(e.target.name !== "down_payment") {
-      setTimeout(()=>this.setDownPayment(),0)
-    }
+    // if(e.target.name !== "down_payment_percent") {
+    //   setTimeout(()=>this.setPercentage(),0)
+    // }
+    // if(e.target.name !== "down_payment") {
+    //   setTimeout(()=>this.setDownPayment(),0)
+    // }
     setTimeout(()=>this.setPrincipalandInt(),0)
     setTimeout(()=>this.setMortgageIns(),0)
     setTimeout(()=>this.setTax(),0)
@@ -110,9 +111,9 @@ class App extends React.Component {
 
   onFormatted(value, field) {
     this.setState({[field]: value})
-    if(field !== "down_payment_percent") {
-      setTimeout(()=>this.setPercentage(),0)
-    }
+    // if(field !== "down_payment_percent") {
+    //   setTimeout(()=>this.setPercentage(),0)
+    // }
     if(field !== "down_payment") {
       setTimeout(()=>this.setDownPayment(),0)
     }
