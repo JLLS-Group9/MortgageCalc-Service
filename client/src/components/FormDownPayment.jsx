@@ -3,8 +3,9 @@ import styles from '../style.css';
 import NumberFormat from 'react-number-format';
 
 const FormDownPayment = (props) => (
-  <div className={styles.forms}
-  style={{width:'1,1,1,0.33'}}>
+  <div
+  style={{width:`(1,1,1,0.33)`}}
+  className={styles.forms}>
   <div className={styles.formsTwo}>
     <form>
       <div className={styles.f1}>
