@@ -3,7 +3,8 @@ import styles from '../style.css';
 import NumberFormat from 'react-number-format';
 
 const FormHomePrice = (props) => (
-  <div className={styles.forms}>
+  <div className={styles.forms}
+  style={{width: '1,1,1,0.33'}}>
   <form className={styles.formsTwo} >
     <div className={styles.f1}>
       <label className={styles.formHeader}>Home Price</label>
@@ -15,7 +16,7 @@ const FormHomePrice = (props) => (
         decimalScale="0"
         onValueChange={(values) => {
           const {formattedValue, value} = values;
-          props.onFormatted(value)
+          props.onFormatted(value, "home_price")
         }}
         value={props.data.home_price}
       />
@@ -27,9 +28,18 @@ const FormHomePrice = (props) => (
         type="range"
         name="home_price"
         min = "0"
-        max = "1600000"
+        max = {Math.max(
+          props.data.max,
+          props.data.home_price*1.15
+        )}
         value={props.data.home_price}
-        style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${props.data.home_price/16000}%, rgb(205, 209, 212) ${props.data.home_price/16000}%, rgb(205, 209, 212) 100%)`}}
+        style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${props.data.home_price/Math.max(
+          props.data.max/100,
+          props.data.home_price*1.15/100
+        )}%, rgb(205, 209, 212) ${props.data.home_price/Math.max(
+          props.data.max/100,
+          props.data.home_price*1.15/100
+        )}%, rgb(205, 209, 212) 100%)`}}
       />
     </div>
   </form>

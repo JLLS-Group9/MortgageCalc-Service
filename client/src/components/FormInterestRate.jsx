@@ -3,20 +3,26 @@ import styles from '../style.css';
 import NumberFormat from 'react-number-format';
 
 const FormInterestRate = (props) => (
-  <div className={styles.forms}>
+  <div className={styles.forms}
+  style={{width: '1,1,1,0.33'}}>
 
-  <form className={styles.formsTwo} className={styles.formHeader} onChange={props.handleInput}>
+  <form className={styles.formsTwo} className={styles.formHeader}>
     <div className={styles.f1}>
       <label>Interest Rate</label>
       <NumberFormat className={styles.formRate}
         suffix={'%'}
         type="text"
         name="interest"
+        onValueChange={(values) => {
+          const {formattedValue, value} = values;
+          props.onFormatted(value, "interest")
+        }}
         value = {props.data.interest}
       />
     </div>
     <div className={styles.f2}>
       <input className={styles.slider}
+        onChange={props.handleInput}
         type="range"
         name="interest"
         min="0"

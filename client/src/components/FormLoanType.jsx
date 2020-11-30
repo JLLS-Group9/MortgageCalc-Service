@@ -2,7 +2,8 @@ import React from 'react';
 import styles from '../style.css';
 
 const FormLoanType = (props) => (
-  <div className={styles.forms}>
+  <div className={styles.forms}
+  style={{width: '1,1,1,0.33'}}>
   <form className={styles.formsTwo}>
     <div className={styles.ff1}>
       <label className={styles.formHeader} for="loan type">Loan Type</label>
