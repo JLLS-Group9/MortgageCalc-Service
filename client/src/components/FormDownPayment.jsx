@@ -43,6 +43,7 @@ const FormDownPayment = (props) => (
           name="down_payment_percent"
           min="0"
           max="30"
+          step="1"
           value={props.data.down_payment_percent}
           style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${props.data.down_payment_percent/.3}%, rgb(205, 209, 212) ${props.data.down_payment_percent/.3}%, rgb(205, 209, 212) 100%)`}}
         />

@@ -51,7 +51,7 @@ class App extends React.Component {
     let endpoint = `${window.location.pathname}cost`
     axios.get(endpoint)
       .then((data) => {
-        this.setState({hoa: data.data[0]['hoa'], home_price: data.data[0]['home_price'], property_tax: Math.round(data.data[0]['property_tax']/12)})
+        this.setState({hoa: data.data[0]['hoa'], home_price: data.data[0]['home_price'], property_tax: data.data[0]['property_tax']/12})
       })
       .then(this.setDefaults("30-year fixed"))
       .then(this.setDownPayment)
@@ -62,11 +62,11 @@ class App extends React.Component {
   }
 
   setDefaults(loan_type) {
-    this.setState({down_payment_percent: 20, interest: Type[loan_type], home_ins: 75, other: 0, loan_type: loan_type})
+    this.setState({down_payment_percent: 20, down_payment: this.state.home_price*.20, interest: Type[loan_type], home_ins: 75, other: 0, loan_type: loan_type})
   }
 
   setDownPayment() {
-    this.setState({down_payment: this.state.home_price*this.state.down_payment_percent/100 })
+    this.setState({down_payment: Math.round(this.state.home_price*this.state.down_payment_percent/100 )})
   }
 
   setPercentage() {
@@ -74,7 +74,7 @@ class App extends React.Component {
   }
 
   setPrincipalandInt() {
-    this.setState({principalAndInterest: Math.round(-this.pmt(this.state.interest/100/12, 360, this.state.home_price-this.state.down_payment))})
+    this.setState({principalAndInterest: -this.pmt(this.state.interest/100/12, 360, this.state.home_price-this.state.down_payment)})
   }
 
   setTax() {
@@ -95,6 +95,12 @@ class App extends React.Component {
       ),0)
     }
     this.setState({[e.target.name]: e.target.value})
+    if(e.target.name !== "down_payment_percent") {
+      setTimeout(()=>this.setPercentage(),0)
+    }
+    if(e.target.name !== "down_payment") {
+      setTimeout(()=>this.setDownPayment(),0)
+    }
     setTimeout(()=>this.setPrincipalandInt(),0)
     setTimeout(()=>this.setMortgageIns(),0)
     setTimeout(()=>this.setTax(),0)
@@ -104,16 +110,18 @@ class App extends React.Component {
 
   onFormatted(value, field) {
     this.setState({[field]: value})
-    if(field === "down_payment_percent") {
+    if(field !== "down_payment_percent") {
       setTimeout(()=>this.setPercentage(),0)
     }
-    setTimeout(()=>this.setDownPayment(),0)
+    if(field !== "down_payment") {
+      setTimeout(()=>this.setDownPayment(),0)
+    }
 
-    setTimeout(()=>this.setMortgageIns(),1000)
-    setTimeout(()=>this.setTax(),1000)
-    setTimeout(()=>this.setPrincipalandInt(),1000)
-    setTimeout(()=>this.calcMonthly(),1000)
-    setTimeout(()=>this.setCircle(),1000)
+    setTimeout(()=>this.setPrincipalandInt(),0)
+    setTimeout(()=>this.setMortgageIns(),0)
+    setTimeout(()=>this.setTax(),0)
+    setTimeout(()=>this.calcMonthly(),0)
+    setTimeout(()=>this.setCircle(),0)
   }
 
   onDownPayment() {
