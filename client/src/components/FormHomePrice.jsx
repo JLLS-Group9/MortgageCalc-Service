@@ -23,7 +23,7 @@ const FormHomePrice = (props) => (
     </div>
     {/* container for slider */}
     <div className={styles.f2}>
-      <input className={styles.slider}
+      <input className={styles.sliderm}
         onChange={props.handleInput}
         type="range"
         name="home_price"
@@ -32,6 +32,7 @@ const FormHomePrice = (props) => (
           props.data.max,
           props.data.home_price*1.15
         )}
+        step="10"
         value={props.data.home_price}
         style={{background: `linear-gradient(to right, rgb(0, 120, 130) 0%, rgb(0, 120, 130) ${props.data.home_price/Math.max(
           props.data.max/100,

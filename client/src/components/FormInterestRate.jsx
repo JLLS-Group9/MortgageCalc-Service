@@ -23,7 +23,7 @@ const FormInterestRate = (props) => (
       />
     </div>
     <div className={styles.f2}>
-      <input className={styles.slider}
+      <input className={styles.sliderm}
         onChange={props.handleInput}
         type="range"
         name="interest"
