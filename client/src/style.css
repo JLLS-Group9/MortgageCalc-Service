@@ -264,7 +264,7 @@ html, body {
 }
 
 .sliderm:focus {
-  border-color: none;
+  border-color: inherit;
   outline: 0;
   box-shadow: none;
 }
