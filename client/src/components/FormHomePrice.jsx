@@ -40,7 +40,7 @@ const FormHomePrice = (props) => (
         )}%, rgb(205, 209, 212) ${props.data.home_price/Math.max(
           props.data.max/100,
           props.data.home_price*1.15/100
-        )}%, rgb(205, 209, 212) 100%)`}}
+        )}%, rgb(205, 209, 212) 100%) !important`}}
       />
     </div>
   </form>

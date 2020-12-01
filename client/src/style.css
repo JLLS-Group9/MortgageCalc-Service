@@ -264,7 +264,9 @@ html, body {
 }
 
 .sliderm:focus {
-  outline: none;
+  border-color: none;
+  outline: 0;
+  box-shadow: none;
 }
 
 .sliderm::-webkit-slider-thumb {
