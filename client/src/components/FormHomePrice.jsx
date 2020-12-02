@@ -3,8 +3,7 @@ import styles from '../style.css';
 import NumberFormat from 'react-number-format';
 
 const FormHomePrice = (props) => (
-  <div className={styles.forms}
-  style={{width: '1,1,1,0.33'}}>
+  <div className={styles.forms}>
   <form className={styles.formsTwo} >
     <div className={styles.f1}>
       <label className={styles.formHeader}>Home Price</label>

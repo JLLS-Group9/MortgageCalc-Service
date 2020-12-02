@@ -129,6 +129,12 @@ html, body {
   border-width: 16px 8px 0px;
 }
 
+@media only screen and (max-width: 880px) {
+  .forms {
+    width: 100%;
+  }
+}
+
 .formsTwo {
   color: rgb(59, 65,68);
   outline: none;
