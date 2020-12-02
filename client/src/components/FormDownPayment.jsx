@@ -8,6 +8,7 @@ const FormDownPayment = (props) => (
     <form className={styles.formsTwo}>
       <div className={styles.f1}>
         <label className={styles.formHeader}>Down Payment</label>
+        <div className={styles.formFixed}>
         <NumberFormat
           className={styles.formLeft }
           thousandSeparator={true}
@@ -33,6 +34,7 @@ const FormDownPayment = (props) => (
           }}
           value={props.data.down_payment_percent}
         />
+        </div>
       </div>
       <div className={styles.f2}>
         <input className={styles.sliderm}

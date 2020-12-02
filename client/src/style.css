@@ -384,6 +384,12 @@ html, body {
   box-shadow: rgb(0, 120, 130) 0px 0px 0px 2px;
 }
 
+.formFixed {
+  display: flex;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+}
+
 .formRate {
   width: 75px;
   display: inline-block;
