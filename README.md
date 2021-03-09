@@ -1,6 +1,7 @@
-# Project Name
+# Home Sweet 127.0.0.1
 
-> Project description
+
+> ![](animation.gif)
 
 ## Related Projects
 
